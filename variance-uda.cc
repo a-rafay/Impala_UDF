@@ -74,8 +74,7 @@ StringVal VarianceFinalize(FunctionContext* ctx, const StringVal& src) {
   ctx->Free(src.ptr);
   if (state.count == 0 || state.count == 1) return StringVal::null();
   double mean = state.sum / state.count;
-  double variance = state.sum_squared + (state.count)*(mean*mean) - (2*mean*state.sum);
-  variance /= state.count;
+  double variance = (state.sum_squared/state.count) - (mean*mean);
    // (state.sum_squared - state.sum * state.sum / state.count) / (state.count - 1);
   return ToStringVal(ctx, variance);
 }
