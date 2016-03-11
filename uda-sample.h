@@ -54,6 +54,61 @@ void CorrMerge(FunctionContext* ctx, const StringVal& src, StringVal* dst);
 const StringVal CorrSerialize(FunctionContext* ctx, const StringVal& src);
 StringVal CorrFinalize(FunctionContext* ctx, const StringVal& src);
 
+// ===============
+// == COVAR_POP ==
+// ===============
+
+// Usage : > create aggregate function covaruda(double,double) returns string
+//		location '/user/cloudera/libudasample.so'
+//		init_fn='CorrInit'
+//		update_fn='CorrUpdate'
+//		merge_fn='CorrMerge'
+//		serialize_fn='CorrSerialize'
+//		finalize_fn='CovarFinalize';
+
+StringVal CovarFinalize(FunctionContext* ctx, const StringVal& src);
+
+// ================
+// == REGR_SLOPE ==
+// ================
+
+// Usage : > create aggregate function regr_slopeuda(double,double) returns string
+//		location '/user/cloudera/libudasample.so'
+//		init_fn='CorrInit'
+//		update_fn='CorrUpdate'
+//		merge_fn='CorrMerge'
+//		serialize_fn='CorrSerialize'
+//		finalize_fn='Regr_SlopeFinalize';
+
+StringVal Regr_SlopeFinalize(FunctionContext* ctx, const StringVal& src);
+
+// ====================
+// == REGR_INTERCEPT ==
+// ====================
+
+// Usage : > create aggregate function regr_interceptuda(double,double) returns string
+//		location '/user/cloudera/libudasample.so'
+//		init_fn='CorrInit'
+//		update_fn='CorrUpdate'
+//		merge_fn='CorrMerge'
+//		serialize_fn='CorrSerialize'
+//		finalize_fn='Regr_InterceptFinalize';
+
+StringVal Regr_InterceptFinalize(FunctionContext* ctx, const StringVal& src);
+
+// =============
+// == REGR_R2 ==
+// =============
+
+// Usage : > create aggregate function regr_r2uda(double,double) returns string
+//		location '/user/cloudera/libudasample.so'
+//		init_fn='CorrInit'
+//		update_fn='CorrUpdate'
+//		merge_fn='CorrMerge'
+//		serialize_fn='CorrSerialize'
+//		finalize_fn='Regr_R2Finalize';
+
+StringVal Regr_R2Finalize(FunctionContext* ctx, const StringVal& src);
 
 // ==================
 // sum of squares UDA

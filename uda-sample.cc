@@ -16,9 +16,7 @@
 #include <assert.h>
 #include <sstream>
 #include <math.h>
-#include <algorithm>
-#include <iostream>
-//#include <impala_udf/udf.h>
+#include <impala_udf/udf.h>
 
 using namespace impala_udf;
 using namespace std;
@@ -110,6 +108,65 @@ StringVal CorrFinalize(FunctionContext* ctx, const StringVal& src) {
   double corr = ((state.prod*state.count) - (state.sumx*state.sumy)) / (pow((((state.count*state.sum_squaredx) - (state.sumx*state.sumx)) * ((state.count*state.sum_squaredy) - (state.sumy*state.sumy))), 0.5));
   return ToStringVal(ctx, corr);
 }
+
+// ===========================================
+// ============= COVAR_POP ===================
+// ===========================================
+//
+
+StringVal CovarFinalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (state.count == 0 || state.count == 1) return StringVal::null();
+  double covar = ((state.prod*state.count) - (state.sumx*state.sumy)) / (state.count * (state.count - 1));
+  return ToStringVal(ctx, covar);
+}
+
+// ===========================================
+// ============= REGR_SLOPE ==================
+// ===========================================
+// 
+
+StringVal Regr_SlopeFinalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (state.count == 0 || state.count == 1) return StringVal::null();
+  double regr_slope = ((state.prod*state.count) - (state.sumx*state.sumy)) / ((state.count*state.sum_squaredx) - (state.sumx*state.sumx));
+  return ToStringVal(ctx, regr_slope);
+}
+
+// ===========================================
+// ============= REGR_INTERCEPT ==============
+// ===========================================
+// 
+
+StringVal Regr_InterceptFinalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (state.count == 0 || state.count == 1) return StringVal::null();
+  double regr_intercept = (state.sumy - (((state.prod*state.count) - (state.sumx*state.sumy)) / ((state.count*state.sum_squaredx) - (state.sumx*state.sumx)))*state.sumx) / state.count;
+  return ToStringVal(ctx, regr_intercept);
+}
+
+// ===========================================
+// ================= REGR_R2 =================
+// ===========================================
+// 
+
+StringVal Regr_R2Finalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  double vary = (state.sum_squaredy/state.count) - (pow((state.sumy/state.count),2));
+  if (vary == 0 || state.count == 0 || state.count == 1) return StringVal::null();
+
+  double varx = (state.sum_squaredx/state.count) - (pow((state.sumx/state.count),2));
+  if (varx == 0) return ToStringVal(ctx, 1);
+
+  // Calculating correlation coefficient using Pearson Product Moment Correlation formula
+  double corr = ((state.prod*state.count) - (state.sumx*state.sumy)) / (pow((((state.count*state.sum_squaredx) - (state.sumx*state.sumx)) * ((state.count*state.sum_squaredy) - (state.sumy*state.sumy))), 0.5));
+  return ToStringVal(ctx, corr*corr);
+}
+
 
 
 // =================================================
