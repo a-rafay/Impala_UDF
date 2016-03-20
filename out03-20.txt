@@ -1,0 +1,543 @@
+
+udera@quickstart Impala]$ export IMPALA_TOOLCHAIN=/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build
+[cloudera@quickstart Impala]$ su root
+Password: 
+[root@quickstart Impala]# find -iname '*cmake*' -not -name CMakeLists.txt | grep -v -e cmake_module | grep -v -e thirdparty | xargs rm -Rf 
+[root@quickstart Impala]# exir
+bash: exir: command not found
+[root@quickstart Impala]# exit
+exit
+[cloudera@quickstart Impala]$ source bin/impala-config.sh
+IMPALA_HOME            = /home/cloudera/test/IMPALA_HOME/Impala
+HADOOP_HOME            = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/
+HADOOP_CONF_DIR        = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+MINI_DFS_BASE_DATA_DIR = /home/cloudera/test/IMPALA_HOME/Impala/cdh-4-hdfs-data
+HIVE_HOME              = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hive-0.10.0-cdh4.5.0/
+HIVE_CONF_DIR          = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+HBASE_HOME             = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hbase-0.94.6-cdh4.5.0/
+HBASE_CONF_DIR         = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+PPROF_PATH             = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gperftools-2.0//src/pprof
+THRIFT_HOME            = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/
+HADOOP_LZO             = /home/cloudera/hadoop-lzo
+IMPALA_LZO             = /home/cloudera/Impala-lzo
+CLASSPATH              = /home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:
+LIBHDFS_OPTS           =  -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service
+PYTHONPATH             = /home/cloudera/test/IMPALA_HOME/Impala:/home/cloudera/test/IMPALA_HOME/Impala/shell/gen-py:/home/cloudera/test/IMPALA_HOME/Impala/testdata/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build//python/lib64/python2.6/site-packages/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build//python/lib/python2.6/site-packages/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hive-0.10.0-cdh4.5.0//lib/py:/home/cloudera/test/IMPALA_HOME/Impala/shell/ext-py/*/dist/*.egg
+JAVA_HOME              = /usr/java/jdk1.7.0_67-cloudera
+LD_LIBRARY_PATH        = :/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/home/cloudera/Impala-lzo/build
+LD_PRELOAD             = :/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so
+IMPALA_TOOLCHAIN       = /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build
+[cloudera@quickstart Impala]$ cmake .
+-- The C compiler identification is GNU 4.4.7
+-- The CXX compiler identification is GNU 4.4.7
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:481 ] _boost_TEST_VERSIONS = 1.56.0;1.56;1.55.0;1.55;1.54.0;1.54;1.53.0;1.53;1.52.0;1.52;1.51.0;1.51;1.50.0;1.50;1.49.0;1.49;1.48.0;1.48;1.47.0;1.47;1.46.1;1.46.0;1.46;1.45.0;1.45;1.44.0;1.44;1.43.0;1.43;1.42.0;1.42;1.41.0;1.41;1.40.0;1.40;1.39.0;1.39;1.38.0;1.38;1.37.0;1.37;1.36.1;1.36.0;1.36;1.35.1;1.35.0;1.35;1.34.1;1.34.0;1.34;1.33.1;1.33.0;1.33
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:483 ] Boost_USE_MULTITHREADED = ON
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:485 ] Boost_USE_STATIC_LIBS = OFF
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:487 ] Boost_USE_STATIC_RUNTIME = OFF
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:489 ] Boost_ADDITIONAL_VERSIONS = 
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:491 ] Boost_NO_SYSTEM_PATHS = true
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:543 ] Declared as CMake or Environmental Variables:
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:545 ]   BOOST_ROOT = /usr/local
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:547 ]   BOOST_INCLUDEDIR = /usr/local/include
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:549 ]   BOOST_LIBRARYDIR = /usr/local/lib
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:551 ] _boost_TEST_VERSIONS = 1.56.0;1.56;1.55.0;1.55;1.54.0;1.54;1.53.0;1.53;1.52.0;1.52;1.51.0;1.51;1.50.0;1.50;1.49.0;1.49;1.48.0;1.48;1.47.0;1.47;1.46.1;1.46.0;1.46;1.45.0;1.45;1.44.0;1.44;1.43.0;1.43;1.42.0;1.42;1.41.0;1.41;1.40.0;1.40;1.39.0;1.39;1.38.0;1.38;1.37.0;1.37;1.36.1;1.36.0;1.36;1.35.1;1.35.0;1.35;1.34.1;1.34.0;1.34;1.33.1;1.33.0;1.33
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:644 ] location of version.hpp: /usr/local/include/boost/version.hpp
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:668 ] version.hpp reveals boost 1.60.0
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:744 ] guessed _boost_COMPILER = -gcc44
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:754 ] _boost_MULTITHREADED = -mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:797 ] _boost_RELEASE_ABI_TAG = -
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:799 ] _boost_DEBUG_ABI_TAG = -d
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:847 ] _boost_LIBRARY_SEARCH_DIRS = /usr/local/lib;/usr/local/lib;/usr/local/stage/lib;/usr/local/include/lib;/usr/local/include/../lib;/usr/local/include/stage/lib;NO_CMAKE_SYSTEM_PATH
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for THREAD_LIBRARY_RELEASE: boost_thread-gcc44-mt-1_60;boost_thread-gcc44-mt;boost_thread-mt-1_60;boost_thread-mt;boost_thread
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for THREAD_LIBRARY_DEBUG: boost_thread-gcc44-mt-d-1_60;boost_thread-gcc44-mt-d;boost_thread-mt-d-1_60;boost_thread-mt-d;boost_thread-mt;boost_thread
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for REGEX-MT_LIBRARY_RELEASE: boost_regex-mt-gcc44-mt-1_60;boost_regex-mt-gcc44-mt;boost_regex-mt-mt-1_60;boost_regex-mt-mt;boost_regex-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for REGEX-MT_LIBRARY_DEBUG: boost_regex-mt-gcc44-mt-d-1_60;boost_regex-mt-gcc44-mt-d;boost_regex-mt-mt-d-1_60;boost_regex-mt-mt-d;boost_regex-mt-mt;boost_regex-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for SYSTEM-MT_LIBRARY_RELEASE: boost_system-mt-gcc44-mt-1_60;boost_system-mt-gcc44-mt;boost_system-mt-mt-1_60;boost_system-mt-mt;boost_system-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for SYSTEM-MT_LIBRARY_DEBUG: boost_system-mt-gcc44-mt-d-1_60;boost_system-mt-gcc44-mt-d;boost_system-mt-mt-d-1_60;boost_system-mt-mt-d;boost_system-mt-mt;boost_system-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for FILESYSTEM-MT_LIBRARY_RELEASE: boost_filesystem-mt-gcc44-mt-1_60;boost_filesystem-mt-gcc44-mt;boost_filesystem-mt-mt-1_60;boost_filesystem-mt-mt;boost_filesystem-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for FILESYSTEM-MT_LIBRARY_DEBUG: boost_filesystem-mt-gcc44-mt-d-1_60;boost_filesystem-mt-gcc44-mt-d;boost_filesystem-mt-mt-d-1_60;boost_filesystem-mt-mt-d;boost_filesystem-mt-mt;boost_filesystem-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:1044 ] Boost_FOUND = 1
+-- Boost version: 1.60.0
+-- Found the following Boost libraries:
+--   thread
+--   regex-mt
+--   system-mt
+--   filesystem-mt
+-- Boost include dir: /usr/local/include
+-- Boost libraries: /usr/local/lib/libboost_thread.so/usr/local/lib/libboost_regex-mt.so/usr/local/lib/libboost_system-mt.so/usr/local/lib/libboost_filesystem-mt.so
+-- Found JNI: /usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjawt.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server/libjvm.so  
+-- JNI_INCLUDE_DIRS: /usr/java/jdk1.7.0_67-cloudera/include;/usr/java/jdk1.7.0_67-cloudera/include/linux;/usr/java/jdk1.7.0_67-cloudera/include
+-- JNI_LIBRARIES: /usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjawt.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server/libjvm.so
+-- Architecture: x64
+-- HDFS_LIB_PATHS: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native
+-- Hadoop 2.0.0-cdh4.5.0
+Subversion git://centos64-5-5-impala2.jenkins.cloudera.com/data/1/jenkins/workspace/Impala-Hadoop-dependency/hadoop/hadoop-common-project/hadoop-common -r 30821ec616ee7a21ee8447949b7c6208a8f1e7d8
+Compiled by jenkins on Mon Nov 18 21:39:09 PST 2013
+From source with checksum 9848b0f85b461913ed63fa19c2b79ccc
+This command was run using /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/share/hadoop/common/hadoop-common-2.0.0-cdh4.5.0.jar
+-- HDFS_INCLUDE_DIR: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/include
+-- HDFS_LIBS: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/lib/native/libhdfs.so
+-- Squeasel web server library found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty
+-- Mustache template library found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty
+-- GLog Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/glog-0.3.2/.libs
+-- GLog include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/glog-0.3.2/src
+-- GFlags found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/.libs
+-- GFlags headers found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/src
+-- GFlags include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/src
+-- PProf Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gperftools-2.0/.libs
+-- PProf include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gperftools-2.0/src
+-- Found GTest: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/libgtest.a;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/libgtest_main.a
+-- GTest include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/include
+-- GTest library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/libgtest.a
+-- LLVM llvm-config found at: /usr/local/bin/llvm-config
+-- LLVM clang++ found at: /usr/local/bin/clang++
+-- LLVM opt found at: /usr/local/bin/opt
+-- LLVM include dir: /usr/local/include
+-- LLVM lib dir: /usr/local/lib
+-- LLVM libs: -ldl;/usr/local/lib/libLLVMLinker.a;/usr/local/lib/libLLVMBitReader.a;/usr/local/lib/libLLVMipo.a;/usr/local/lib/libLLVMVectorize.a;/usr/local/lib/libLLVMX86Disassembler.a;/usr/local/lib/libLLVMX86AsmParser.a;/usr/local/lib/libLLVMX86CodeGen.a;/usr/local/lib/libLLVMSelectionDAG.a;/usr/local/lib/libLLVMAsmPrinter.a;/usr/local/lib/libLLVMMCParser.a;/usr/local/lib/libLLVMX86Desc.a;/usr/local/lib/libLLVMX86Info.a;/usr/local/lib/libLLVMX86AsmPrinter.a;/usr/local/lib/libLLVMX86Utils.a;/usr/local/lib/libLLVMJIT.a;/usr/local/lib/libLLVMRuntimeDyld.a;/usr/local/lib/libLLVMExecutionEngine.a;/usr/local/lib/libLLVMCodeGen.a;/usr/local/lib/libLLVMObjCARCOpts.a;/usr/local/lib/libLLVMScalarOpts.a;/usr/local/lib/libLLVMInstCombine.a;/usr/local/lib/libLLVMTransformUtils.a;/usr/local/lib/libLLVMipa.a;/usr/local/lib/libLLVMAnalysis.a;/usr/local/lib/libLLVMTarget.a;/usr/local/lib/libLLVMMC.a;/usr/local/lib/libLLVMObject.a;/usr/local/lib/libLLVMCore.a;/usr/local/lib/libLLVMSupport.a
+-- LLVM compile flags: -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+-- Found SASL /tmp/impala-build/cyrus-sasl-2.1.23/build/lib/libsasl2.a
+-- Found LDAP /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/openldap-2.4.25/impala_install/lib/libldap.a
+-- THRIFT_HOME: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/
+-- Thrift version: Thrift version 0.9.0
+-- Thrift include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/include
+-- Thrift contrib dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build
+-- Thrift library path: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/lib/libthrift.so
+-- Thrift static library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/lib/libthrift.a
+-- Thrift compiler: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/bin/thrift
+-- Snappy Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib
+-- Snappy include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/include
+-- Snappy library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib/libsnappy.a
+-- Lz4 Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4
+-- Lz4 include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4
+-- Lz4 library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4/liblz4.a
+-- Re2 Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2/obj
+-- Re2 include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2
+-- Re2 library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2/obj/libre2.a
+-- RapidJson headers found in: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/rapidjson/include
+-- RapidJson include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/rapidjson/include
+-- Boost Multi Precision found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision
+-- BoostMultiPrecision include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision
+-- Avro found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src
+-- Avro include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src
+-- Avro static library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src/libavro.a
+Using Thrift compiler: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/bin/thrift
+Found output dir: /home/cloudera/test/IMPALA_HOME/Impala/shell/
+-- Found Doxygen: /usr/bin/doxygen (found version "1.6.1") 
+STATUS,Compiler Flags: -msse4.2 -Wall -Wno-sign-compare -Wno-unknown-pragmas -pthread -fno-strict-aliasing -Wno-deprecated -DBOOST_DATE_TIME_POSIX_TIME_STD_CONFIG -g -ggdb -fverbose-asm -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+STATUS,Linker Libs: -Wl,--start-group;Catalog;CodeGen;Common;Exec;Exprs;GlobalFlags;ImpalaThrift;ResourceBroker;Rpc;Runtime;Scheduling;Service;Statestore;TestUtil;ThriftSaslTransport;Util;Webserver;-Wl,--end-group;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib/libsnappy.a;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4/liblz4.a;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2/obj/libre2.a;/usr/local/lib/libboost_thread.so;/usr/local/lib/libboost_regex-mt.so;/usr/local/lib/libboost_system-mt.so;/usr/local/lib/libboost_filesystem-mt.so;-ldl;/usr/local/lib/libLLVMLinker.a;/usr/local/lib/libLLVMBitReader.a;/usr/local/lib/libLLVMipo.a;/usr/local/lib/libLLVMVectorize.a;/usr/local/lib/libLLVMX86Disassembler.a;/usr/local/lib/libLLVMX86AsmParser.a;/usr/local/lib/libLLVMX86CodeGen.a;/usr/local/lib/libLLVMSelectionDAG.a;/usr/local/lib/libLLVMAsmPrinter.a;/usr/local/lib/libLLVMMCParser.a;/usr/local/lib/libLLVMX86Desc.a;/usr/local/lib/libLLVMX86Info.a;/usr/local/lib/libLLVMX86AsmPrinter.a;/usr/local/lib/libLLVMX86Utils.a;/usr/local/lib/libLLVMJIT.a;/usr/local/lib/libLLVMRuntimeDyld.a;/usr/local/lib/libLLVMExecutionEngine.a;/usr/local/lib/libLLVMCodeGen.a;/usr/local/lib/libLLVMObjCARCOpts.a;/usr/local/lib/libLLVMScalarOpts.a;/usr/local/lib/libLLVMInstCombine.a;/usr/local/lib/libLLVMTransformUtils.a;/usr/local/lib/libLLVMipa.a;/usr/local/lib/libLLVMAnalysis.a;/usr/local/lib/libLLVMTarget.a;/usr/local/lib/libLLVMMC.a;/usr/local/lib/libLLVMObject.a;/usr/local/lib/libLLVMCore.a;/usr/local/lib/libLLVMSupport.a;thriftstatic;saslstatic;ldapstatic;lberstatic;ThriftSaslTransport;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server/libjvm.so;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/lib/native/libhdfs.so;glogstatic;gflagsstatic;gutil;pprofstatic;-lz;-lbz2;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src/libavro.a;-lrt;-lboost_date_time;tcmallocstatic;Udf
+-- Common /home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/cloudera/test/IMPALA_HOME/Impala
+[cloudera@quickstart Impala]$ sudo ./buildall.sh -noclean -skiptests -build_shared_libs
+IMPALA_HOME            = /home/cloudera/test/IMPALA_HOME/Impala
+HADOOP_HOME            = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/
+HADOOP_CONF_DIR        = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+MINI_DFS_BASE_DATA_DIR = /home/cloudera/test/IMPALA_HOME/Impala/cdh-4-hdfs-data
+HIVE_HOME              = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hive-0.10.0-cdh4.5.0/
+HIVE_CONF_DIR          = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+HBASE_HOME             = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hbase-0.94.6-cdh4.5.0/
+HBASE_CONF_DIR         = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+PPROF_PATH             = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gperftools-2.0//src/pprof
+THRIFT_HOME            = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/
+HADOOP_LZO             = /root/hadoop-lzo
+IMPALA_LZO             = /root/Impala-lzo
+CLASSPATH              = /root/hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:
+LIBHDFS_OPTS           =  -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service
+PYTHONPATH             = /home/cloudera/test/IMPALA_HOME/Impala:/home/cloudera/test/IMPALA_HOME/Impala/shell/gen-py:/home/cloudera/test/IMPALA_HOME/Impala/testdata/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build//python/lib64/python2.6/site-packages/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build//python/lib/python2.6/site-packages/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hive-0.10.0-cdh4.5.0//lib/py:/home/cloudera/test/IMPALA_HOME/Impala/shell/ext-py/*/dist/*.egg
+JAVA_HOME              = /usr/java/default
+LD_LIBRARY_PATH        = :/usr/java/default/jre/lib/amd64:/usr/java/default/jre/lib/amd64:/usr/java/default/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib:/root/Impala-lzo/build
+LD_PRELOAD             = :/usr/java/default/jre/lib/amd64/libjsig.so
+IMPALA_TOOLCHAIN       = 
++ for ARG in '$*'
++ '[' '' = UNDEFINED ']'
++ case "$ARG" in
++ CLEAN_ACTION=0
++ for ARG in '$*'
++ '[' '' = UNDEFINED ']'
++ case "$ARG" in
++ TESTS_ACTION=0
++ for ARG in '$*'
++ '[' '' = UNDEFINED ']'
++ case "$ARG" in
++ '[' '' = UNDEFINED ']'
++ '[' '' '!=' '' ']'
++ '[' '!' -e /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/libgflags.la ']'
++ '[' -e '/root/hadoop-lzo/build/native/Linux-*-*/lib/libgplcompression.so' ']'
++ echo 'No hadoop-lzo found'
+No hadoop-lzo found
++ /home/cloudera/test/IMPALA_HOME/Impala/bin/start-impala-cluster.py --kill --force
+catalogd: no process killed
+impalad: no process killed
+statestored: no process killed
+mini-impala-cluster: no process killed
++ '[' 0 -eq 1 ']'
++ '[' 0 -eq 1 ']'
++ '[' 0 -eq 1 ']'
++ '[' 0 -eq 1 ']'
++ '[' 0 -eq 1 ']'
++ /home/cloudera/test/IMPALA_HOME/Impala/bin/create-test-configuration.sh
+Creating node-3 at /home/cloudera/test/IMPALA_HOME/Impala/testdata/cluster/cdh4/node-3
+node-3 will use ports DATANODE_PORT=31000 and NODEMANAGER_PORT=31100
+Creating node-2 at /home/cloudera/test/IMPALA_HOME/Impala/testdata/cluster/cdh4/node-2
+node-2 will use ports DATANODE_PORT=31001 and NODEMANAGER_PORT=31101
+Creating node-1 at /home/cloudera/test/IMPALA_HOME/Impala/testdata/cluster/cdh4/node-1
+node-1 will use ports DATANODE_PORT=31002 and NODEMANAGER_PORT=31102
+Config dir: /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+Current user: root
+Metastore DB: hive_impala
+/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources /home/cloudera/test/IMPALA_HOME/Impala
+Creating Sentry Policy Server DB
+createdb: could not connect to database postgres: FATAL:  Ident authentication failed for user "hiveuser"
+Linking core-site.xml from local cluster
+Linking hdfs-site.xml from local cluster
+Generating hive-site.xml using postgresql for metastore
+Generating hive-log4j.properties
+Generating hbase-site.xml
+Generating authorization policy file
+Generating sentry policy server config file
+/home/cloudera/test/IMPALA_HOME/Impala
+Completed config generation
+Searching for auxiliary tests, workloads, and datasets (if any exist).
+No auxiliary tests found at: /root/impala-auxiliary-tests/testdata/workloads
+No auxiliary tests found at: /root/impala-auxiliary-tests/testdata/datasets
+No auxiliary tests found at: /root/impala-auxiliary-tests/tests
++ MAKE_IMPALA_ARGS=' -build_type=Debug -noclean -skiptests -build_shared_libs'
++ echo 'Calling make_impala.sh  -build_type=Debug -noclean -skiptests -build_shared_libs'
+Calling make_impala.sh  -build_type=Debug -noclean -skiptests -build_shared_libs
++ /home/cloudera/test/IMPALA_HOME/Impala/bin/make_impala.sh -build_type=Debug -noclean -skiptests -build_shared_libs
+********************************************************************************
+ Building Impala 
+ Build type: Debug 
+ Impala libraries will be DYNAMICALLY linked
+********************************************************************************
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:481 ] _boost_TEST_VERSIONS = 1.56.0;1.56;1.55.0;1.55;1.54.0;1.54;1.53.0;1.53;1.52.0;1.52;1.51.0;1.51;1.50.0;1.50;1.49.0;1.49;1.48.0;1.48;1.47.0;1.47;1.46.1;1.46.0;1.46;1.45.0;1.45;1.44.0;1.44;1.43.0;1.43;1.42.0;1.42;1.41.0;1.41;1.40.0;1.40;1.39.0;1.39;1.38.0;1.38;1.37.0;1.37;1.36.1;1.36.0;1.36;1.35.1;1.35.0;1.35;1.34.1;1.34.0;1.34;1.33.1;1.33.0;1.33
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:483 ] Boost_USE_MULTITHREADED = ON
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:485 ] Boost_USE_STATIC_LIBS = OFF
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:487 ] Boost_USE_STATIC_RUNTIME = OFF
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:489 ] Boost_ADDITIONAL_VERSIONS = 
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:491 ] Boost_NO_SYSTEM_PATHS = 
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:543 ] Declared as CMake or Environmental Variables:
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:545 ]   BOOST_ROOT = 
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:547 ]   BOOST_INCLUDEDIR = 
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:549 ]   BOOST_LIBRARYDIR = 
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:551 ] _boost_TEST_VERSIONS = 1.56.0;1.56;1.55.0;1.55;1.54.0;1.54;1.53.0;1.53;1.52.0;1.52;1.51.0;1.51;1.50.0;1.50;1.49.0;1.49;1.48.0;1.48;1.47.0;1.47;1.46.1;1.46.0;1.46;1.45.0;1.45;1.44.0;1.44;1.43.0;1.43;1.42.0;1.42;1.41.0;1.41;1.40.0;1.40;1.39.0;1.39;1.38.0;1.38;1.37.0;1.37;1.36.1;1.36.0;1.36;1.35.1;1.35.0;1.35;1.34.1;1.34.0;1.34;1.33.1;1.33.0;1.33
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:620 ] Include debugging info:
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:622 ]   _boost_INCLUDE_SEARCH_DIRS = PATHS;C:/boost/include;C:/boost;/sw/local/include
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:624 ]   _boost_PATH_SUFFIXES = boost-1_56_0;boost_1_56_0;boost/boost-1_56_0;boost/boost_1_56_0;boost-1_56;boost_1_56;boost/boost-1_56;boost/boost_1_56;boost-1_55_0;boost_1_55_0;boost/boost-1_55_0;boost/boost_1_55_0;boost-1_55;boost_1_55;boost/boost-1_55;boost/boost_1_55;boost-1_54_0;boost_1_54_0;boost/boost-1_54_0;boost/boost_1_54_0;boost-1_54;boost_1_54;boost/boost-1_54;boost/boost_1_54;boost-1_53_0;boost_1_53_0;boost/boost-1_53_0;boost/boost_1_53_0;boost-1_53;boost_1_53;boost/boost-1_53;boost/boost_1_53;boost-1_52_0;boost_1_52_0;boost/boost-1_52_0;boost/boost_1_52_0;boost-1_52;boost_1_52;boost/boost-1_52;boost/boost_1_52;boost-1_51_0;boost_1_51_0;boost/boost-1_51_0;boost/boost_1_51_0;boost-1_51;boost_1_51;boost/boost-1_51;boost/boost_1_51;boost-1_50_0;boost_1_50_0;boost/boost-1_50_0;boost/boost_1_50_0;boost-1_50;boost_1_50;boost/boost-1_50;boost/boost_1_50;boost-1_49_0;boost_1_49_0;boost/boost-1_49_0;boost/boost_1_49_0;boost-1_49;boost_1_49;boost/boost-1_49;boost/boost_1_49;boost-1_48_0;boost_1_48_0;boost/boost-1_48_0;boost/boost_1_48_0;boost-1_48;boost_1_48;boost/boost-1_48;boost/boost_1_48;boost-1_47_0;boost_1_47_0;boost/boost-1_47_0;boost/boost_1_47_0;boost-1_47;boost_1_47;boost/boost-1_47;boost/boost_1_47;boost-1_46_1;boost_1_46_1;boost/boost-1_46_1;boost/boost_1_46_1;boost-1_46_0;boost_1_46_0;boost/boost-1_46_0;boost/boost_1_46_0;boost-1_46;boost_1_46;boost/boost-1_46;boost/boost_1_46;boost-1_45_0;boost_1_45_0;boost/boost-1_45_0;boost/boost_1_45_0;boost-1_45;boost_1_45;boost/boost-1_45;boost/boost_1_45;boost-1_44_0;boost_1_44_0;boost/boost-1_44_0;boost/boost_1_44_0;boost-1_44;boost_1_44;boost/boost-1_44;boost/boost_1_44;boost-1_43_0;boost_1_43_0;boost/boost-1_43_0;boost/boost_1_43_0;boost-1_43;boost_1_43;boost/boost-1_43;boost/boost_1_43;boost-1_42_0;boost_1_42_0;boost/boost-1_42_0;boost/boost_1_42_0;boost-1_42;boost_1_42;boost/boost-1_42;boost/boost_1_42;boost-1_41_0;boost_1_41_0;boost/boost-1_41_0;boost/boost_1_41_0;boost-1_41;boost_1_41;boost/boost-1_41;boost/boost_1_41;boost-1_40_0;boost_1_40_0;boost/boost-1_40_0;boost/boost_1_40_0;boost-1_40;boost_1_40;boost/boost-1_40;boost/boost_1_40;boost-1_39_0;boost_1_39_0;boost/boost-1_39_0;boost/boost_1_39_0;boost-1_39;boost_1_39;boost/boost-1_39;boost/boost_1_39;boost-1_38_0;boost_1_38_0;boost/boost-1_38_0;boost/boost_1_38_0;boost-1_38;boost_1_38;boost/boost-1_38;boost/boost_1_38;boost-1_37_0;boost_1_37_0;boost/boost-1_37_0;boost/boost_1_37_0;boost-1_37;boost_1_37;boost/boost-1_37;boost/boost_1_37;boost-1_36_1;boost_1_36_1;boost/boost-1_36_1;boost/boost_1_36_1;boost-1_36_0;boost_1_36_0;boost/boost-1_36_0;boost/boost_1_36_0;boost-1_36;boost_1_36;boost/boost-1_36;boost/boost_1_36;boost-1_35_1;boost_1_35_1;boost/boost-1_35_1;boost/boost_1_35_1;boost-1_35_0;boost_1_35_0;boost/boost-1_35_0;boost/boost_1_35_0;boost-1_35;boost_1_35;boost/boost-1_35;boost/boost_1_35;boost-1_34_1;boost_1_34_1;boost/boost-1_34_1;boost/boost_1_34_1;boost-1_34_0;boost_1_34_0;boost/boost-1_34_0;boost/boost_1_34_0;boost-1_34;boost_1_34;boost/boost-1_34;boost/boost_1_34;boost-1_33_1;boost_1_33_1;boost/boost-1_33_1;boost/boost_1_33_1;boost-1_33_0;boost_1_33_0;boost/boost-1_33_0;boost/boost_1_33_0;boost-1_33;boost_1_33;boost/boost-1_33;boost/boost_1_33
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:644 ] location of version.hpp: /usr/local/include/boost/version.hpp
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:668 ] version.hpp reveals boost 1.60.0
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:744 ] guessed _boost_COMPILER = -gcc44
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:754 ] _boost_MULTITHREADED = -mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:797 ] _boost_RELEASE_ABI_TAG = -
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:799 ] _boost_DEBUG_ABI_TAG = -d
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:847 ] _boost_LIBRARY_SEARCH_DIRS = /usr/local/include/lib;/usr/local/include/../lib;/usr/local/include/stage/lib;PATHS;C:/boost/lib;C:/boost;/sw/local/lib
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for THREAD_LIBRARY_RELEASE: boost_thread-gcc44-mt-1_60;boost_thread-gcc44-mt;boost_thread-mt-1_60;boost_thread-mt;boost_thread
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for THREAD_LIBRARY_DEBUG: boost_thread-gcc44-mt-d-1_60;boost_thread-gcc44-mt-d;boost_thread-mt-d-1_60;boost_thread-mt-d;boost_thread-mt;boost_thread
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for REGEX-MT_LIBRARY_RELEASE: boost_regex-mt-gcc44-mt-1_60;boost_regex-mt-gcc44-mt;boost_regex-mt-mt-1_60;boost_regex-mt-mt;boost_regex-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for REGEX-MT_LIBRARY_DEBUG: boost_regex-mt-gcc44-mt-d-1_60;boost_regex-mt-gcc44-mt-d;boost_regex-mt-mt-d-1_60;boost_regex-mt-mt-d;boost_regex-mt-mt;boost_regex-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for SYSTEM-MT_LIBRARY_RELEASE: boost_system-mt-gcc44-mt-1_60;boost_system-mt-gcc44-mt;boost_system-mt-mt-1_60;boost_system-mt-mt;boost_system-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for SYSTEM-MT_LIBRARY_DEBUG: boost_system-mt-gcc44-mt-d-1_60;boost_system-mt-gcc44-mt-d;boost_system-mt-mt-d-1_60;boost_system-mt-mt-d;boost_system-mt-mt;boost_system-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:957 ] Searching for FILESYSTEM-MT_LIBRARY_RELEASE: boost_filesystem-mt-gcc44-mt-1_60;boost_filesystem-mt-gcc44-mt;boost_filesystem-mt-mt-1_60;boost_filesystem-mt-mt;boost_filesystem-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:993 ] Searching for FILESYSTEM-MT_LIBRARY_DEBUG: boost_filesystem-mt-gcc44-mt-d-1_60;boost_filesystem-mt-gcc44-mt-d;boost_filesystem-mt-mt-d-1_60;boost_filesystem-mt-mt-d;boost_filesystem-mt-mt;boost_filesystem-mt
+-- [ /usr/share/cmake/Modules/FindBoost.cmake:1044 ] Boost_FOUND = 1
+-- Boost version: 1.60.0
+-- Found the following Boost libraries:
+--   thread
+--   regex-mt
+--   system-mt
+--   filesystem-mt
+-- Boost include dir: /usr/local/include
+-- Boost libraries: /usr/local/lib/libboost_thread.so/usr/local/lib/libboost_regex-mt.so/usr/local/lib/libboost_system-mt.so/usr/local/lib/libboost_filesystem-mt.so
+-- Found JNI: /usr/java/default/jre/lib/amd64/libjawt.so;/usr/java/default/jre/lib/amd64/libjsig.so;/usr/java/default/jre/lib/amd64/server/libjvm.so  
+-- JNI_INCLUDE_DIRS: /usr/java/default/include;/usr/java/default/include/linux;/usr/java/default/include
+-- JNI_LIBRARIES: /usr/java/default/jre/lib/amd64/libjawt.so;/usr/java/default/jre/lib/amd64/libjsig.so;/usr/java/default/jre/lib/amd64/server/libjvm.so
+-- Architecture: x64
+-- HDFS_LIB_PATHS: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0//lib/native
+-- Hadoop 2.0.0-cdh4.5.0
+Subversion git://centos64-5-5-impala2.jenkins.cloudera.com/data/1/jenkins/workspace/Impala-Hadoop-dependency/hadoop/hadoop-common-project/hadoop-common -r 30821ec616ee7a21ee8447949b7c6208a8f1e7d8
+Compiled by jenkins on Mon Nov 18 21:39:09 PST 2013
+From source with checksum 9848b0f85b461913ed63fa19c2b79ccc
+This command was run using /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/share/hadoop/common/hadoop-common-2.0.0-cdh4.5.0.jar
+-- HDFS_INCLUDE_DIR: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/include
+-- HDFS_LIBS: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/lib/native/libhdfs.so
+-- Squeasel web server library found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty
+-- Mustache template library found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty
+-- GLog Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/glog-0.3.2/.libs
+-- GLog include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/glog-0.3.2/src
+-- GFlags found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/.libs
+-- GFlags headers found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/src
+-- GFlags include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gflags-2.0/src
+-- PProf Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gperftools-2.0/.libs
+-- PProf include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gperftools-2.0/src
+-- Found GTest: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/libgtest.a;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/libgtest_main.a
+-- GTest include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/include
+-- GTest library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/gtest-1.6.0/libgtest.a
+-- LLVM llvm-config found at: /usr/local/bin/llvm-config
+-- LLVM clang++ found at: /usr/bin/clang++
+-- LLVM opt found at: /usr/bin/opt
+-- LLVM include dir: /usr/local/include
+-- LLVM lib dir: /usr/local/lib
+-- LLVM libs: -ldl;/usr/local/lib/libLLVMLinker.a;/usr/local/lib/libLLVMBitReader.a;/usr/local/lib/libLLVMipo.a;/usr/local/lib/libLLVMVectorize.a;/usr/local/lib/libLLVMX86Disassembler.a;/usr/local/lib/libLLVMX86AsmParser.a;/usr/local/lib/libLLVMX86CodeGen.a;/usr/local/lib/libLLVMSelectionDAG.a;/usr/local/lib/libLLVMAsmPrinter.a;/usr/local/lib/libLLVMMCParser.a;/usr/local/lib/libLLVMX86Desc.a;/usr/local/lib/libLLVMX86Info.a;/usr/local/lib/libLLVMX86AsmPrinter.a;/usr/local/lib/libLLVMX86Utils.a;/usr/local/lib/libLLVMJIT.a;/usr/local/lib/libLLVMRuntimeDyld.a;/usr/local/lib/libLLVMExecutionEngine.a;/usr/local/lib/libLLVMCodeGen.a;/usr/local/lib/libLLVMObjCARCOpts.a;/usr/local/lib/libLLVMScalarOpts.a;/usr/local/lib/libLLVMInstCombine.a;/usr/local/lib/libLLVMTransformUtils.a;/usr/local/lib/libLLVMipa.a;/usr/local/lib/libLLVMAnalysis.a;/usr/local/lib/libLLVMTarget.a;/usr/local/lib/libLLVMMC.a;/usr/local/lib/libLLVMObject.a;/usr/local/lib/libLLVMCore.a;/usr/local/lib/libLLVMSupport.a
+-- LLVM compile flags: -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+-- Found SASL /tmp/impala-build/cyrus-sasl-2.1.23/build/lib/libsasl2.a
+-- Found LDAP /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/openldap-2.4.25/impala_install/lib/libldap.a
+-- THRIFT_HOME: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/
+-- Thrift version: Thrift version 0.9.0
+-- Thrift include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/include
+-- Thrift contrib dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build
+-- Thrift library path: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/lib/libthrift.so
+-- Thrift static library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/lib/libthrift.a
+-- Thrift compiler: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/bin/thrift
+-- Snappy Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib
+-- Snappy include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/include
+-- Snappy library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib/libsnappy.a
+-- Lz4 Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4
+-- Lz4 include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4
+-- Lz4 library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4/liblz4.a
+-- Re2 Found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2/obj
+-- Re2 include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2
+-- Re2 library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2/obj/libre2.a
+-- RapidJson headers found in: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/rapidjson/include
+-- RapidJson include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/rapidjson/include
+-- Boost Multi Precision found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision
+-- BoostMultiPrecision include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision
+-- Avro found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src
+-- Avro include dir: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src
+-- Avro static library: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src/libavro.a
+Using Thrift compiler: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/thrift-0.9.0/build/bin/thrift
+Found output dir: /home/cloudera/test/IMPALA_HOME/Impala/shell/
+-- Found Doxygen: /usr/bin/doxygen (found version "1.6.1") 
+STATUS,Compiler Flags: -msse4.2 -Wall -Wno-sign-compare -Wno-unknown-pragmas -pthread -fno-strict-aliasing -Wno-deprecated -DBOOST_DATE_TIME_POSIX_TIME_STD_CONFIG -g -ggdb -fverbose-asm -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+STATUS,Linker Libs: -Wl,--start-group;Catalog;CodeGen;Common;Exec;Exprs;GlobalFlags;ImpalaThrift;ResourceBroker;Rpc;Runtime;Scheduling;Service;Statestore;TestUtil;ThriftSaslTransport;Util;Webserver;-Wl,--end-group;Runtime;Exec;CodeGen;Exprs;Rpc;Service;Statestore;Scheduling;Catalog;ResourceBroker;Webserver;ImpalaThrift;GlobalFlags;Common;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/snappy-1.0.5/build/lib/libsnappy.a;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/lz4/liblz4.a;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/re2/obj/libre2.a;/usr/local/lib/libboost_thread.so;/usr/local/lib/libboost_regex-mt.so;/usr/local/lib/libboost_system-mt.so;/usr/local/lib/libboost_filesystem-mt.so;-ldl;/usr/local/lib/libLLVMLinker.a;/usr/local/lib/libLLVMBitReader.a;/usr/local/lib/libLLVMipo.a;/usr/local/lib/libLLVMVectorize.a;/usr/local/lib/libLLVMX86Disassembler.a;/usr/local/lib/libLLVMX86AsmParser.a;/usr/local/lib/libLLVMX86CodeGen.a;/usr/local/lib/libLLVMSelectionDAG.a;/usr/local/lib/libLLVMAsmPrinter.a;/usr/local/lib/libLLVMMCParser.a;/usr/local/lib/libLLVMX86Desc.a;/usr/local/lib/libLLVMX86Info.a;/usr/local/lib/libLLVMX86AsmPrinter.a;/usr/local/lib/libLLVMX86Utils.a;/usr/local/lib/libLLVMJIT.a;/usr/local/lib/libLLVMRuntimeDyld.a;/usr/local/lib/libLLVMExecutionEngine.a;/usr/local/lib/libLLVMCodeGen.a;/usr/local/lib/libLLVMObjCARCOpts.a;/usr/local/lib/libLLVMScalarOpts.a;/usr/local/lib/libLLVMInstCombine.a;/usr/local/lib/libLLVMTransformUtils.a;/usr/local/lib/libLLVMipa.a;/usr/local/lib/libLLVMAnalysis.a;/usr/local/lib/libLLVMTarget.a;/usr/local/lib/libLLVMMC.a;/usr/local/lib/libLLVMObject.a;/usr/local/lib/libLLVMCore.a;/usr/local/lib/libLLVMSupport.a;thriftstatic;saslstatic;ldapstatic;lberstatic;ThriftSaslTransport;/usr/java/default/jre/lib/amd64/server/libjvm.so;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.0.0-cdh4.5.0/lib/native/libhdfs.so;glogstatic;gflagsstatic;gutil;pprofstatic;-lz;-lbz2;/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/avro-c-1.7.4/src/libavro.a;-lrt;-lboost_date_time;tcmallocstatic;Udf
+-- Common /home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/cloudera/test/IMPALA_HOME/Impala
+2.1.0-cdh4-INTERNAL
+ee41f74cec618b137aed52dd4ae28526ebd0a6b1
+Tue Mar 15 20:58:14 PDT 2016
+Scanning dependencies of target function-registry
+[100%] Generating files for builtins.
+[100%] Built target function-registry
+Scanning dependencies of target thrift-cpp
+[ 12%] Running thrift compiler on beeswax.thrift
+[ 12%] Running thrift compiler on CatalogInternalService.thrift
+[ 12%] Running thrift compiler on CatalogObjects.thrift
+[ 12%] Running thrift compiler on CatalogService.thrift
+[ 25%] Running thrift compiler on TCLIService.thrift
+[ 25%] Running thrift compiler on cli_service.thrift
+[ 25%] Running thrift compiler on DataSinks.thrift
+[ 25%] Running thrift compiler on Descriptors.thrift
+[ 25%] Running thrift compiler on ExecStats.thrift
+[ 37%] Running thrift compiler on Frontend.thrift
+[ 37%] Running thrift compiler on Exprs.thrift
+[ 37%] Running thrift compiler on ExternalDataSource.thrift
+[ 37%] Running thrift compiler on ImpalaInternalService.thrift
+[ 50%] Running thrift compiler on ImpalaService.thrift
+[ 50%] Running thrift compiler on JniCatalog.thrift
+[ 50%] Running thrift compiler on Llama.thrift
+[ 50%] Running thrift compiler on Logging.thrift
+[ 50%] Running thrift compiler on NetworkTest.thrift
+[ 62%] Running thrift compiler on PlanNodes.thrift
+[ 62%] Running thrift compiler on Planner.thrift
+[ 62%] Running thrift compiler on Partitions.thrift
+[ 62%] Running thrift compiler on parquet.thrift
+[ 75%] Running thrift compiler on ResourceBrokerService.thrift
+[ 75%] Running thrift compiler on Results.thrift
+[ 75%] Running thrift compiler on RuntimeProfile.thrift
+[ 75%] Running thrift compiler on StatestoreService.thrift
+[ 75%] Running thrift compiler on Data.thrift
+[ 87%] Running thrift compiler on Status.thrift
+[ 87%] Running thrift compiler on Types.thrift
+[ 87%] Built target thrift-cpp
+Scanning dependencies of target thrift-ext-data-src
+[ 87%] Running thrift compiler for ext-data-source on ExternalDataSource.thrift
+[ 87%] Running thrift compiler for ext-data-source on Data.thrift
+[100%] Running thrift compiler for ext-data-source on Status.thrift
+[100%] Running thrift compiler for ext-data-source on Types.thrift
+[100%] Built target thrift-ext-data-src
+Generating IR description files
+Retaining existing file: /home/cloudera/test/IMPALA_HOME/Impala/be/generated-sources/impala-ir/impala-ir-functions.h
+Retaining existing file: /home/cloudera/test/IMPALA_HOME/Impala/be/generated-sources/impala-ir/impala-ir-names.h
+Scanning dependencies of target gutil
+[  1%] Built target function-registry
+[  1%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/bits.cc.o
+[  8%] Built target thrift-cpp
+[  8%] Running thrift compiler for ext-data-source on ExternalDataSource.thrift
+[  8%] Running thrift compiler for ext-data-source on Data.thrift
+[  9%] Running thrift compiler for ext-data-source on Status.thrift
+[  9%] Running thrift compiler for ext-data-source on Types.thrift
+[  9%] Built target thrift-ext-data-src
+Scanning dependencies of target Catalog
+[  9%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/stringprintf.cc.o
+[  9%] Building CXX object be/src/catalog/CMakeFiles/Catalog.dir/catalog.cc.o
+[  9%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/memutil.cc.o
+[ 10%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/charset.cc.o
+[ 10%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/util.cc.o
+[ 10%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/human_readable.cc.o
+[ 10%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/join.cc.o
+[ 11%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/numbers.cc.o
+[ 11%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/split.cc.o
+[ 11%] Building CXX object be/src/catalog/CMakeFiles/Catalog.dir/catalog-server.cc.o
+[ 11%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/strip.cc.o
+[ 11%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/ascii_ctype.cc.o
+[ 11%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/escaping.cc.o
+[ 12%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/stringpiece.cc.o
+[ 12%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/substitute.cc.o
+[ 12%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/strcat.cc.o
+[ 12%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strings/serialize.cc.o
+[ 13%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/mathlimits.cc.o
+[ 13%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/int128.cc.o
+[ 13%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/strtoint.cc.o
+[ 13%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/once.cc.o
+[ 13%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/atomicops-internals-x86.cc.o
+In file included from /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision/cpp_int.hpp:1801,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/multi-precision.h:33,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/decimal-value.h:25,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/util/string-parser.h:24,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-parse-util.h:24,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:23,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/util/promise.h:19,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/rpc/auth-provider.h:24,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/rpc/authentication.h:22,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/rpc/thrift-client.h:33,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/statestore/statestore.h:32,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/statestore/statestore-subscriber.h:26,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/catalog/catalog-server.h:28,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/catalog/catalog-server.cc:15:
+/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision/cpp_int/misc.hpp: In function ‘typename boost::enable_if_c<boost::multiprecision::backends::is_trivial_cpp_int::value, void>::type boost::multiprecision::backends::eval_gcd(boost::multiprecision::backends::cpp_int_backend<MinBits, MaxBits, SignType, Checked, Allocator>&, const boost::multiprecision::backends::cpp_int_backend<MinBits, MaxBits, SignType, Checked, Allocator>&, const boost::multiprecision::backends::cpp_int_backend<MinBits, MaxBits, SignType, Checked, Allocator>&)’:
+/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision/cpp_int/misc.hpp:485: error: ‘gcd’ is not a member of ‘boost::math’
+/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision/cpp_int/misc.hpp: In function ‘typename boost::enable_if_c<(boost::multiprecision::backends::is_trivial_cpp_int::value && (Checked1 == boost::multiprecision::unchecked)), void>::type boost::multiprecision::backends::eval_lcm(boost::multiprecision::backends::cpp_int_backend<MinBits, MaxBits, SignType, Checked, Allocator>&, const boost::multiprecision::backends::cpp_int_backend<MinBits, MaxBits, SignType, Checked, Allocator>&, const boost::multiprecision::backends::cpp_int_backend<MinBits, MaxBits, SignType, Checked, Allocator>&)’:
+/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/boost_multiprecision/cpp_int/misc.hpp:492: error: ‘lcm’ is not a member of ‘boost::math’
+[ 14%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/spinlock_wait.cc.o
+In file included from /home/cloudera/test/IMPALA_HOME/Impala/be/src/util/promise.h:19,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/rpc/auth-provider.h:24,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/rpc/authentication.h:22,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/rpc/thrift-client.h:33,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/statestore/statestore.h:32,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/statestore/statestore-subscriber.h:26,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/catalog/catalog-server.h:28,
+                 from /home/cloudera/test/IMPALA_HOME/Impala/be/src/catalog/catalog-server.cc:15:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator bool() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:143: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator int8_t() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:148: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator int16_t() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:153: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator int32_t() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:158: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator int64_t() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:163: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator float() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:168: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h: In member function ‘impala::TimestampValue::operator double() const’:
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:174: error: call of overloaded ‘to_time_t(boost::posix_time::ptime&)’ is ambiguous
+/home/cloudera/test/IMPALA_HOME/Impala/be/src/runtime/timestamp-value.h:29: note: candidates are: time_t impala::to_time_t(boost::posix_time::ptime)
+/usr/local/include/boost/date_time/posix_time/conversion.hpp:35: note:                 time_t boost::posix_time::to_time_t(boost::posix_time::ptime)
+[ 14%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/walltime.cc.o
+[ 14%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/hash/hash.cc.o
+[ 14%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/hash/jenkins.cc.o
+[ 15%] Building CXX object thirdparty/gutil/CMakeFiles/gutil.dir/hash/city.cc.o
+[ 15%] Building C object thirdparty/gutil/CMakeFiles/gutil.dir/utf/rune.c.o
+Linking CXX shared library libgutil.so
+[ 15%] Built target gutil
+Scanning dependencies of target ImpalaThrift
+[ 16%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogObjects_constants.cpp.o
+[ 16%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogObjects_types.cpp.o
+make[2]: *** [be/src/catalog/CMakeFiles/Catalog.dir/catalog-server.cc.o] Error 1
+make[1]: *** [be/src/catalog/CMakeFiles/Catalog.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 16%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogService.cpp.o
+[ 16%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogService_constants.cpp.o
+[ 17%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogService_types.cpp.o
+[ 17%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogInternalService_constants.cpp.o
+[ 17%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/CatalogInternalService_types.cpp.o
+[ 17%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaInternalService.cpp.o
+[ 17%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaInternalService_constants.cpp.o
+[ 18%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaInternalService_types.cpp.o
+[ 18%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaService.cpp.o
+[ 18%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaService_constants.cpp.o
+[ 18%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaService_types.cpp.o
+[ 19%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ImpalaHiveServer2Service.cpp.o
+[ 19%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Llama_constants.cpp.o
+[ 19%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Llama_types.cpp.o
+[ 19%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/LlamaAMService.cpp.o
+[ 19%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/LlamaNotificationService.cpp.o
+[ 20%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/beeswax_constants.cpp.o
+[ 20%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/beeswax_types.cpp.o
+[ 20%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/BeeswaxService.cpp.o
+[ 20%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/TCLIService.cpp.o
+[ 21%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/TCLIService_constants.cpp.o
+[ 21%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/TCLIService_types.cpp.o
+[ 21%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Data_constants.cpp.o
+[ 21%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Data_types.cpp.o
+[ 21%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/DataSinks_constants.cpp.o
+[ 22%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/DataSinks_types.cpp.o
+[ 22%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Descriptors_constants.cpp.o
+[ 22%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Descriptors_types.cpp.o
+[ 22%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ExecStats_constants.cpp.o
+[ 23%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ExecStats_types.cpp.o
+[ 23%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Exprs_constants.cpp.o
+[ 23%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Exprs_types.cpp.o
+[ 23%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ExternalDataSource_constants.cpp.o
+[ 23%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ExternalDataSource_types.cpp.o
+[ 24%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Frontend_types.cpp.o
+[ 24%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Frontend_constants.cpp.o
+[ 24%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/hive_metastore_constants.cpp.o
+[ 24%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/hive_metastore_types.cpp.o
+[ 25%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/JniCatalog_constants.cpp.o
+[ 25%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/JniCatalog_types.cpp.o
+[ 25%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Logging_types.cpp.o
+[ 25%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/NetworkTest_constants.cpp.o
+[ 25%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/NetworkTest_types.cpp.o
+[ 26%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/NetworkTestService.cpp.o
+[ 26%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/PlanNodes_constants.cpp.o
+[ 26%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/PlanNodes_types.cpp.o
+[ 26%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ResourceBrokerNotificationService.cpp.o
+[ 27%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ResourceBrokerService_constants.cpp.o
+[ 27%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ResourceBrokerService_types.cpp.o
+[ 27%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/ResourceBrokerService.cpp.o
+[ 27%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Results_constants.cpp.o
+[ 27%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Results_types.cpp.o
+[ 28%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Partitions_constants.cpp.o
+[ 28%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Partitions_types.cpp.o
+[ 28%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Planner_constants.cpp.o
+[ 28%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Planner_types.cpp.o
+[ 28%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/parquet_constants.cpp.o
+[ 29%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/parquet_types.cpp.o
+[ 29%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/RuntimeProfile_constants.cpp.o
+[ 29%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/RuntimeProfile_types.cpp.o
+[ 29%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/StatestoreService.cpp.o
+[ 30%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/StatestoreService_constants.cpp.o
+[ 30%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/StatestoreService_types.cpp.o
+[ 30%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/StatestoreSubscriber.cpp.o
+[ 30%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Status_constants.cpp.o
+[ 30%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Status_types.cpp.o
+[ 31%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Types_constants.cpp.o
+[ 31%] Building CXX object be/generated-sources/gen-cpp/CMakeFiles/ImpalaThrift.dir/Types_types.cpp.o
+Linking CXX shared library ../../build/debug/thrift/libImpalaThrift.so
+[ 31%] Built target ImpalaThrift
+make: *** [all] Error 2
+[cloudera@quickstart Impala]$ ls
