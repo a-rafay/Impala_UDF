@@ -1,0 +1,171 @@
+MPALA_HOME            = /home/cloudera/test/IMPALA_HOME/Impala
+HADOOP_HOME            = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT/
+HADOOP_CONF_DIR        = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+MINI_DFS_BASE_DATA_DIR = /home/cloudera/test/IMPALA_HOME/Impala/cdh-5-hdfs-data
+HIVE_HOME              = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hive-1.1.0-cdh5.8.0-SNAPSHOT/
+HIVE_CONF_DIR          = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+HBASE_HOME             = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hbase-1.2.0-cdh5.8.0-SNAPSHOT/
+HBASE_CONF_DIR         = /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+MINIKDC_HOME           = /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/llama-minikdc-1.0.0
+THRIFT_HOME            = /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2
+HADOOP_LZO             = /home/cloudera/test/IMPALA_HOME/Impala/../hadoop-lzo
+IMPALA_LZO             = /home/cloudera/test/IMPALA_HOME/Impala/../Impala-lzo
+CLASSPATH              = /home/cloudera/test/IMPALA_HOME/Impala/../hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/test/IMPALA_HOME/Impala/../hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:/home/cloudera/test/IMPALA_HOME/Impala/../hadoop-lzo/build/hadoop-lzo-0.4.15.jar:/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/classes:/home/cloudera/test/IMPALA_HOME/Impala/fe/target/dependency:
+LIBHDFS_OPTS           =  -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service -Djava.library.path=/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native/:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service
+PYTHONPATH             = /home/cloudera/test/IMPALA_HOME/Impala:/home/cloudera/test/IMPALA_HOME/Impala/shell/gen-py:/home/cloudera/test/IMPALA_HOME/Impala/testdata/:/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/python/lib64/python2.6/site-packages/:/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/python/lib/python2.6/site-packages/:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hive-1.1.0-cdh5.8.0-SNAPSHOT//lib/py:/home/cloudera/test/IMPALA_HOME/Impala/shell/ext-py/*/dist/*.egg
+JAVA_HOME              = /usr/java/jdk1.7.0_67-cloudera
+LD_LIBRARY_PATH        = :/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/snappy-1.0.5/lib:/home/cloudera/test/IMPALA_HOME/Impala/../Impala-lzo/build:/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gcc-4.9.2/lib64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server:/home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native:/home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/service:/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/snappy-1.0.5/lib:/home/cloudera/test/IMPALA_HOME/Impala/../Impala-lzo/build:/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gcc-4.9.2/lib64
+LD_PRELOAD             = :/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so:/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so
+IMPALA_TOOLCHAIN       = /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build
+No hadoop-lzo found
+The minikdc is not running.
+Creating node-3 at /home/cloudera/test/IMPALA_HOME/Impala/testdata/cluster/cdh5/node-3
+node-3 will use ports DATANODE_PORT=31000, NODEMANAGER_PORT=31100, and KUDU_TS_RPC_PORT=31200
+Creating node-2 at /home/cloudera/test/IMPALA_HOME/Impala/testdata/cluster/cdh5/node-2
+node-2 will use ports DATANODE_PORT=31001, NODEMANAGER_PORT=31101, and KUDU_TS_RPC_PORT=31201
+Creating node-1 at /home/cloudera/test/IMPALA_HOME/Impala/testdata/cluster/cdh5/node-1
+node-1 will use ports DATANODE_PORT=31002, NODEMANAGER_PORT=31102, and KUDU_TS_RPC_PORT=31202
+Config dir: /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources
+Current user: root
+Metastore DB: hive_impala
+/home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources /home/cloudera/test/IMPALA_HOME/Impala
+Linking core-site.xml from local cluster
+Linking hdfs-site.xml from local cluster
+Generated /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources/hive-site.xml
+Generated /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources/log4j.properties
+Generated /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources/hive-log4j.properties
+Generated /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources/hbase-site.xml
+Generated /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources/authz-policy.ini
+Generated /home/cloudera/test/IMPALA_HOME/Impala/fe/src/test/resources/sentry-site.xml
+/home/cloudera/test/IMPALA_HOME/Impala
+Completed config generation
+Searching for auxiliary tests, workloads, and datasets (if any exist).
+No auxiliary tests found at: /home/cloudera/test/IMPALA_HOME/Impala/../Impala-auxiliary-tests/testdata/workloads
+No auxiliary tests found at: /home/cloudera/test/IMPALA_HOME/Impala/../Impala-auxiliary-tests/testdata/datasets
+No auxiliary tests found at: /home/cloudera/test/IMPALA_HOME/Impala/../Impala-auxiliary-tests/tests
+Calling make_impala.sh  -build_type=Debug
+********************************************************************************
+ Building Impala 
+ Build type: Debug 
+ Impala libraries will be STATICALLY linked
+********************************************************************************
+-- Toolchain build.
+-- Downloading and extracting dependencies.
+-- Toolchain bootstrap complete.
+-- Build type is DEBUG
+-- ENABLE_CODE_COVERAGE: false
+-- Found Impala Toolchain, enabling toolchain boost
+-- Boost version: 1.57.0
+-- Found the following Boost libraries:
+--   thread
+--   regex
+--   system
+--   filesystem
+--   date_time
+-- Boost include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/boost-1.57.0/include
+-- Boost libraries: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/boost-1.57.0/lib/libboost_thread.a/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/boost-1.57.0/lib/libboost_regex.a/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/boost-1.57.0/lib/libboost_system.a/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/boost-1.57.0/lib/libboost_filesystem.a/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/boost-1.57.0/lib/libboost_date_time.a
+-- OpenSSL: /usr/include
+-- OpenSSL: /usr/lib64/libssl.so;/usr/lib64/libcrypto.so
+-- Bzip2: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/bzip2-1.0.6-p1/include
+-- Zlib: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/zlib-1.2.8/include
+-- Architecture: x64
+-- HDFS_LIB_PATHS: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native
+-- Hadoop 2.6.0-cdh5.8.0-SNAPSHOT
+Subversion git://github.mtv.cloudera.com/CDH/hadoop.git -r 09b64207673464148f8ed28d9a3bf4849638dbcb
+Compiled by jenkins on 2016-02-25T07:39Z
+Compiled with protoc 2.5.0
+From source with checksum 5d1b532dacd47cf9acc8fc52f2624bd2
+This command was run using /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT/share/hadoop/common/hadoop-common-2.6.0-cdh5.8.0-SNAPSHOT.jar
+-- HDFS_INCLUDE_DIR: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT/include
+-- HDFS_LIBRARIES: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT/lib/native/libhdfs.so
+-- HDFS_STATIC: /home/cloudera/test/IMPALA_HOME/Impala/thirdparty/hadoop-2.6.0-cdh5.8.0-SNAPSHOT//lib/native/libhdfs.a
+-- Squeasel web server library found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty
+-- Mustache template library found in /home/cloudera/test/IMPALA_HOME/Impala/thirdparty
+-- GLog include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/glog-0.3.2-p1/include
+-- GFlags include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gflags-2.0/include
+-- GFlags lib dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gflags-2.0/lib/libgflags.so
+-- PProf include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gperftools-2.5/include
+-- PProf static lib: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gperftools-2.5/lib/libprofiler.a
+-- Found GTest: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gtest-1.6.0/lib/libgtest.a;/home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gtest-1.6.0/lib/libgtest_main.a
+-- GTest include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gtest-1.6.0/include
+-- GTest library: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/gtest-1.6.0/lib/libgtest.a
+-- LLVM llvm-config found at: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-no-asserts-p1/bin/llvm-config
+-- LLVM clang++ found at: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-no-asserts-p1/bin/clang++
+-- LLVM opt found at: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-no-asserts-p1/bin/opt
+-- LLVM_ROOT: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-p1
+-- LLVM llvm-config found at: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-p1/bin/llvm-config
+-- LLVM include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-p1/include
+-- LLVM lib dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/llvm-3.3-p1/lib
+-- Found the CyrusSASL library: 
+-- Sasl include dir: /usr/include
+-- Sasl library: sasllib
+-- LDAP: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/openldap-2.4.25/include
+-- THRIFT_HOME: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2
+-- Thrift version: Thrift version 0.9.0
+-- Thrift include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/include
+-- Thrift contrib dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2
+-- Thrift library path: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/lib/libthrift.so
+-- Thrift static library: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/lib/libthrift.a
+-- Thrift compiler: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/bin/thrift
+-- Snappy include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/snappy-1.0.5/include
+-- Snappy library: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/snappy-1.0.5/lib/libsnappy.a
+-- Lz4 include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/lz4-svn/include
+-- Lz4 library: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/lz4-svn/lib/liblz4.a
+-- /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/re2-20130115-p1/include
+-- Re2 include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/re2-20130115-p1/include
+-- Re2 library: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/re2-20130115-p1/lib/libre2.a
+-- RapidJson include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/rapidjson-0.11/include
+-- Avro include dir: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/avro-1.7.4-p4/include
+-- Avro static library: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/avro-1.7.4-p4/lib/libavro.a
+-- Found JNI: /usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjawt.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server/libjvm.so  
+-- JNI_INCLUDE_DIRS: /usr/java/jdk1.7.0_67-cloudera/include;/usr/java/jdk1.7.0_67-cloudera/include/linux;/usr/java/jdk1.7.0_67-cloudera/include
+-- JNI_LIBRARIES: /usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjawt.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/libjsig.so;/usr/java/jdk1.7.0_67-cloudera/jre/lib/amd64/server/libjvm.so
+Using Thrift compiler: /home/cloudera/test/IMPALA_HOME/Impala/toolchain/build/thrift-0.9.0-p2/bin/thrift
+Found output dir: /home/cloudera/test/IMPALA_HOME/Impala/shell/
+-- Found Doxygen: /usr/bin/doxygen (found version "1.6.1") 
+-- Compiler Flags:  -Wall -Wno-sign-compare -Wno-unknown-pragmas -pthread -fno-strict-aliasing -std=c++14 -Wno-deprecated -Wno-vla -DBOOST_DATE_TIME_POSIX_TIME_STD_CONFIG -g -Wno-unused-local-typedefs -ggdb -gdwarf-2 -Werror -fverbose-asm -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+-- Common /home/cloudera/test/IMPALA_HOME/Impala/be/build/debug/
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_TOOLCHAIN_FILE
+
+
+-- Build files have been written to: /home/cloudera/test/IMPALA_HOME/Impala
+# Generated version information from save-version.sh
+VERSION: 2.6.0-cdh5-INTERNAL
+GIT_HASH: b97d40529d6deb7139ee4d0894be7fb5181a0036
+BUILD_TIME: Tue Mar 22 13:36:38 PDT 2016
+2.6.0-cdh5-INTERNAL
+b97d40529d6deb7139ee4d0894be7fb5181a0036
+Tue Mar 22 13:36:38 PDT 2016
+Scanning dependencies of target function-registry
+Generating files for builtins.
+Built target function-registry
+Scanning dependencies of target thrift-generated-files-error
+Scanning dependencies of target thrift-generated-files-metrics
+[  0%] [  0%] Generating MetricDefs.thrift
+Generating ErrorCodes.thrift
+ErrorCodes.thrift created.
+[  0%] Built target thrift-generated-files-error
+Scanning dependencies of target gutil
+/home/cloudera/test/IMPALA_HOME/Impala/common/thrift/MetricDefs.thrift created.
+[  0%] Built target thrift-generated-files-metrics
+Scanning dependencies of target gen_ir_descriptions
+[  0%] Generating ir cross compile metadata.
+[  0%] Building CXX object be/src/gutil/CMakeFiles/gutil.dir/bits.cc.o
+cc1plus: error: unrecognized command line option "-std=c++14"
+cc1plus: error: unrecognized command line option "-std=c++14"
+cc1plus: warnings being treated as errors
+cc1plus: error: unrecognized command line option "-Wno-unused-local-typedefs"
+make[3]: *** [be/src/gutil/CMakeFiles/gutil.dir/bits.cc.o] Error 1
+make[2]: *** [be/src/gutil/CMakeFiles/gutil.dir/all] Error 2
+make[2]: *** Waiting for unfinished jobs....
+Generating IR description files
+[  0%] Built target gen_ir_descriptions
+make[1]: *** [be/src/service/CMakeFiles/impalad.dir/rule] Error 2
+make: *** [impalad] Error 2
+Error in /home/cloudera/test/IMPALA_HOME/Impala/bin/make_impala.sh at line 123: make -j${IMPALA_BUILD_THREADS:-4} impalad
+Error in ./buildall.sh at line 269: $IMPALA_HOME/bin/make_impala.sh ${MAKE_IMPALA_ARGS}
