@@ -1,0 +1,303 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+E0331 16:09:29.802345 26620 cpu-info.cc:155] CPU does not support the Supplemental SSE3 (SSSE3) instruction set, which is required. Exiting if Supplemental SSE3 is not functional...
+I0331 16:09:29.802765 26620 authentication.cc:975] Internal communication is not authenticated
+I0331 16:09:29.802783 26620 authentication.cc:996] External communication is not authenticated
+I0331 16:09:29.802997 26620 init.cc:158] impalad version 2.5.0-cdh5-INTERNAL DEBUG (build d8bdfaecf57999e0cb0fa4a8b26507a3781bf665)
+Built on Wed, 30 Mar 2016 14:13:37 PST
+I0331 16:09:29.803009 26620 init.cc:159] Using hostname: localhost
+I0331 16:09:29.803787 26620 logging.cc:155] Flags (see also /varz are on debug webserver):
+--catalog_service_port=26000
+--load_catalog_in_background=false
+--num_metadata_loading_threads=16
+--sentry_config=
+--disable_optimization_passes=false
+--dump_ir=false
+--opt_module_dir=
+--print_llvm_ir_instruction_count=false
+--unopt_module_dir=
+--abort_on_config_error=true
+--be_port=22000
+--be_principal=
+--compact_catalog_topic=false
+--disable_mem_pools=false
+--enable_process_lifetime_heap_profiling=false
+--heap_profile_dir=
+--hostname=localhost
+--keytab_file=
+--krb5_conf=
+--krb5_debug_file=
+--mem_limit=80%
+--principal=
+--redaction_rules_file=
+--stress_free_pool_alloc=0
+--max_log_files=10
+--log_filename=impalad
+--redirect_stdout_stderr=false
+--data_source_batch_size=1024
+--exchg_node_buffer_size_bytes=10485760
+--enable_partitioned_aggregation=true
+--enable_partitioned_hash_join=true
+--enable_probe_side_filtering=true
+--enable_quadratic_probing=true
+--skip_lzo_version_check=false
+--convert_legacy_hive_parquet_utc_timestamps=false
+--max_page_header_size=8388608
+--max_row_batches=0
+--suppress_unknown_disk_id_warnings=false
+--debug_disable_streaming_gzip=false
+--enable_phj_probe_side_filtering=true
+--enable_ldap_auth=false
+--kerberos_reinit_interval=60
+--ldap_allow_anonymous_binds=false
+--ldap_baseDN=
+--ldap_bind_pattern=
+--ldap_ca_certificate=
+--ldap_domain=
+--ldap_manual_config=false
+--ldap_passwords_in_clear_ok=false
+--ldap_tls=false
+--ldap_uri=
+--sasl_path=
+--rpc_cnxn_attempts=10
+--rpc_cnxn_retry_interval_ms=2000
+--disk_spill_encryption=false
+--insert_inherit_permissions=false
+--datastream_timeout_ms=60000
+--max_cached_file_handles=0
+--max_free_io_buffers=128
+--min_buffer_size=1024
+--num_disks=0
+--num_remote_hdfs_io_threads=8
+--num_s3_io_threads=16
+--num_threads_per_disk=0
+--read_size=8388608
+--catalog_service_host=localhost
+--cgroup_hierarchy_path=
+--enable_rm=false
+--enable_webserver=true
+--llama_addresses=
+--llama_callback_port=28000
+--llama_host=
+--llama_max_request_attempts=5
+--llama_port=15000
+--llama_registration_timeout_secs=30
+--llama_registration_wait_secs=3
+--num_hdfs_worker_threads=16
+--resource_broker_cnxn_attempts=1
+--resource_broker_cnxn_retry_interval_ms=3000
+--resource_broker_recv_timeout=0
+--resource_broker_send_timeout=0
+--staging_cgroup=impala_staging
+--state_store_host=localhost
+--state_store_subscriber_port=23000
+--use_statestore=true
+--local_library_dir=/tmp
+--serialize_batch=false
+--status_report_interval=5
+--num_threads_per_core=3
+--use_local_tz_for_unix_timestamp_conversions=false
+--scratch_dirs=/tmp
+--queue_wait_timeout_ms=60000
+--max_vcore_oversubscription_ratio=2.5
+--rm_mem_expansion_timeout_ms=5000
+--rm_always_use_defaults=false
+--rm_default_cpu_vcores=2
+--rm_default_memory=4G
+--default_pool_max_queued=200
+--default_pool_max_requests=200
+--default_pool_mem_limit=
+--disable_pool_max_requests=false
+--disable_pool_mem_limits=false
+--fair_scheduler_allocation_path=
+--llama_site_path=
+--disable_admission_control=true
+--require_username=false
+--log_mem_usage_interval=0
+--authorization_policy_file=
+--authorization_policy_provider_class=org.apache.sentry.provider.common.HadoopGroupResourceAuthorizationProvider
+--authorized_proxy_user_config=
+--authorized_proxy_user_config_delimiter=,
+--load_catalog_at_startup=false
+--server_name=
+--abort_on_failed_audit_event=true
+--abort_on_failed_lineage_event=true
+--audit_event_log_dir=
+--be_service_threads=64
+--beeswax_port=21000
+--cancellation_thread_pool_size=5
+--default_query_options=
+--fe_service_threads=64
+--hs2_port=21050
+--idle_query_timeout=0
+--idle_session_timeout=0
+--lineage_event_log_dir=
+--local_nodemanager_url=
+--log_query_to_file=true
+--max_audit_event_log_file_size=5000
+--max_lineage_log_file_size=5000
+--max_profile_log_file_size=5000
+--max_result_cache_size=100000
+--profile_log_dir=
+--query_log_size=25
+--ssl_client_ca_certificate=
+--ssl_private_key=
+--ssl_private_key_password_cmd=
+--ssl_server_certificate=
+--statestore_subscriber_cnxn_attempts=10
+--statestore_subscriber_cnxn_retry_interval_ms=3000
+--statestore_subscriber_timeout_seconds=30
+--state_store_port=24000
+--statestore_heartbeat_frequency_ms=1000
+--statestore_heartbeat_tcp_timeout_seconds=3
+--statestore_max_missed_heartbeats=10
+--statestore_num_heartbeat_threads=10
+--statestore_num_update_threads=10
+--statestore_update_frequency_ms=2000
+--statestore_update_tcp_timeout_seconds=300
+--force_lowercase_usernames=false
+--num_cores=0
+--web_log_bytes=1048576
+--non_impala_java_vlog=0
+--periodic_counter_update_period_ms=500
+--enable_webserver_doc_root=true
+--webserver_authentication_domain=
+--webserver_certificate_file=
+--webserver_doc_root=/home/dev/Impala
+--webserver_interface=
+--webserver_password_file=
+--webserver_port=25000
+--webserver_private_key_file=
+--webserver_private_key_password_cmd=
+--flagfile=
+--fromenv=
+--tryfromenv=
+--undefok=
+--tab_completion_columns=80
+--tab_completion_word=
+--help=false
+--helpfull=false
+--helpmatch=
+--helpon=
+--helppackage=false
+--helpshort=false
+--helpxml=false
+--version=false
+--alsologtoemail=
+--alsologtostderr=false
+--drop_log_memory=true
+--log_backtrace_at=
+--log_dir=/tmp
+--log_link=
+--log_prefix=true
+--logbuflevel=0
+--logbufsecs=30
+--logemaillevel=999
+--logmailer=/bin/mail
+--logtostderr=true
+--max_log_size=1800
+--minloglevel=0
+--stderrthreshold=4
+--stop_logging_if_full_disk=false
+--symbolize_stacktrace=true
+--v=1
+--vmodule=
+I0331 16:09:29.803867 26620 init.cc:164] Cpu Info:
+  Model: AMD Opteron(tm) Processor 6128
+  Cores: 16
+  L1 Cache: 64.00 KB
+  L2 Cache: 512.00 KB
+  L3 Cache: 10.00 MB
+  Hardware Supports:
+    popcnt
+I0331 16:09:29.803882 26620 init.cc:165] Disk Info: 
+  Num disks 3: 
+    sda (rotational=true)
+    sdb (rotational=true)
+    sr (rotational=true)
+
+I0331 16:09:29.803896 26620 init.cc:166] Physical Memory: 62.92 GB
+I0331 16:09:29.803907 26620 init.cc:167] OS version: Linux version 3.13.0-43-generic (buildd@tipua) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #72-Ubuntu SMP Mon Dec 8 19:35:06 UTC 2014
+I0331 16:09:29.803915 26620 init.cc:168] Process ID: 26620
+I0331 16:09:56.777823 26620 hbase-table-scanner.cc:157] Detected HBase version >= 0.95.2
+16/03/31 16:09:57 INFO zookeeper.RecoverableZooKeeper: Process identifier=hconnection-0x19e67b2d connecting to ZooKeeper ensemble=localhost:2181
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:zookeeper.version=3.4.5-cdh5.7.0-SNAPSHOT--1, built on 02/13/2016 00:22 GMT
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:host.name=localhost
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.version=1.7.0_80
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.vendor=Oracle Corporation
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.home=/usr/lib/jvm/java-7-oracle/jre
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.class.path=/home/dev/Impala/fe/src/test/resources:/home/dev/Impala/fe/target/classes:/home/dev/Impala/fe/target/dependency:/home/dev/Impala/fe/target/test-classes:/home/dev/Impala/thirdparty/hive-1.1.0-cdh5.7.0-SNAPSHOT//lib/datanucleus-api-jdo-3.2.1.jar:/home/dev/Impala/thirdparty/hive-1.1.0-cdh5.7.0-SNAPSHOT//lib/datanucleus-core-3.2.2.jar:/home/dev/Impala/thirdparty/hive-1.1.0-cdh5.7.0-SNAPSHOT//lib/datanucleus-rdbms-3.2.1.jar::/home/dev/Impala/fe/target/dependency/ST4-4.0.4.jar:/home/dev/Impala/fe/target/dependency/activation-1.1.jar:/home/dev/Impala/fe/target/dependency/ant-1.5.jar:/home/dev/Impala/fe/target/dependency/ant-1.9.1.jar:/home/dev/Impala/fe/target/dependency/ant-contrib-1.0b3.jar:/home/dev/Impala/fe/target/dependency/ant-launcher-1.9.1.jar:/home/dev/Impala/fe/target/dependency/antlr-2.7.7.jar:/home/dev/Impala/fe/target/dependency/antlr-runtime-3.3.jar:/home/dev/Impala/fe/target/dependency/aopalliance-1.0.jar:/home/dev/Impala/fe/target/dependency/apache-log4j-extras-1.2.17.jar:/home/dev/Impala/fe/target/dependency/apacheds-i18n-2.0.0-M15.jar:/home/dev/Impala/fe/target/dependency/apacheds-kerberos-codec-2.0.0-M15.jar:/home/dev/Impala/fe/target/dependency/api-asn1-api-1.0.0-M20.jar:/home/dev/Impala/fe/target/dependency/api-util-1.0.0-M20.jar:/home/dev/Impala/fe/target/dependency/asm-3.1.jar:/home/dev/Impala/fe/target/dependency/asm-commons-3.1.jar:/home/dev/Impala/fe/target/dependency/asm-tree-3.1.jar:/home/dev/Impala/fe/target/dependency/avro-1.7.6-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/aws-java-sdk-core-1.10.6.jar:/home/dev/Impala/fe/target/dependency/aws-java-sdk-kms-1.10.6.jar:/home/dev/Impala/fe/target/dependency/aws-java-sdk-s3-1.10.6.jar:/home/dev/Impala/fe/target/dependency/bonecp-0.7.1.RELEASE.jar:/home/dev/Impala/fe/target/dependency/calcite-avatica-1.0.0-incubating.jar:/home/dev/Impala/fe/target/dependency/calcite-core-1.0.0-incubating.jar:/home/dev/Impala/fe/target/dependency/calcite-linq4j-1.0.0-incubating.jar:/home/dev/Impala/fe/target/dependency/commons-beanutils-1.8.3.jar:/home/dev/Impala/fe/target/dependency/commons-beanutils-core-1.8.0.jar:/home/dev/Impala/fe/target/dependency/commons-cli-1.2.jar:/home/dev/Impala/fe/target/dependency/commons-codec-1.9.jar:/home/dev/Impala/fe/target/dependency/commons-collections-3.2.2.jar:/home/dev/Impala/fe/target/dependency/commons-compiler-2.7.6.jar:/home/dev/Impala/fe/target/dependency/commons-compress-1.4.1.jar:/home/dev/Impala/fe/target/dependency/commons-configuration-1.6.jar:/home/dev/Impala/fe/target/dependency/commons-daemon-1.0.13.jar:/home/dev/Impala/fe/target/dependency/commons-dbcp-1.4.jar:/home/dev/Impala/fe/target/dependency/commons-digester-1.8.jar:/home/dev/Impala/fe/target/dependency/commons-el-1.0.jar:/home/dev/Impala/fe/target/dependency/commons-httpclient-3.1.jar:/home/dev/Impala/fe/target/dependency/commons-io-2.4.jar:/home/dev/Impala/fe/target/dependency/commons-lang-2.6.jar:/home/dev/Impala/fe/target/dependency/commons-logging-1.1.3.jar:/home/dev/Impala/fe/target/dependency/commons-math-2.2.jar:/home/dev/Impala/fe/target/dependency/commons-math3-3.1.1.jar:/home/dev/Impala/fe/target/dependency/commons-net-3.1.jar:/home/dev/Impala/fe/target/dependency/commons-pool-1.5.4.jar:/home/dev/Impala/fe/target/dependency/commons-pool2-2.2.jar:/home/dev/Impala/fe/target/dependency/core-3.1.1.jar:/home/dev/Impala/fe/target/dependency/curator-client-2.7.1.jar:/home/dev/Impala/fe/target/dependency/curator-framework-2.7.1.jar:/home/dev/Impala/fe/target/dependency/curator-recipes-2.7.1.jar:/home/dev/Impala/fe/target/dependency/curator-test-2.7.1.jar:/home/dev/Impala/fe/target/dependency/curator-x-discovery-2.7.1.jar:/home/dev/Impala/fe/target/dependency/datanucleus-api-jdo-3.2.6.jar:/home/dev/Impala/fe/target/dependency/datanucleus-core-3.2.12.jar:/home/dev/Impala/fe/target/dependency/datanucleus-rdbms-3.2.12.jar:/home/dev/Impala/fe/target/dependency/derby-10.4.2.0.jar:/home/dev/Impala/fe/target/dependency/eigenbase-properties-1.1.4.jar:/home/dev/Impala/fe/target/dependency/findbugs-annotations-1.3.9-1.jar:/home/dev/Impala/fe/target/dependency/geronimo-annotation_1.0_spec-1.1.1.jar:/home/dev/Impala/fe/target/dependency/geronimo-jaspic_1.0_spec-1.0.jar:/home/dev/Impala/fe/target/dependency/geronimo-jta_1.1_spec-1.1.1.jar:/home/dev/Impala/fe/target/dependency/groovy-all-2.4.4.jar:/home/dev/Impala/fe/target/dependency/gson-2.2.4.jar:/home/dev/Impala/fe/target/dependency/guava-11.0.2.jar:/home/dev/Impala/fe/target/dependency/guice-3.0.jar:/home/dev/Impala/fe/target/dependency/guice-servlet-3.0.jar:/home/dev/Impala/fe/target/dependency/hadoop-annotations-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-auth-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-aws-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-common-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-core-2.6.0-mr1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-hdfs-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-mapreduce-client-common-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-mapreduce-client-core-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-mapreduce-client-jobclient-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-mapreduce-client-shuffle-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-api-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-client-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-common-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-server-applicationhistoryservice-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-server-common-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-server-nodemanager-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-server-resourcemanager-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hadoop-yarn-server-web-proxy-2.6.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hbase-annotations-1.0.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hbase-client-1.0.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hbase-common-1.0.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hbase-protocol-1.0.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/high-scale-lib-1.1.1.jar:/home/dev/Impala/fe/target/dependency/hive-ant-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-beeline-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-common-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-exec-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-hbase-handler-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-metastore-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-serde-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-service-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-shims-0.23-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-shims-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-shims-common-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hive-shims-scheduler-1.1.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/hsqldb-1.8.0.10.jar:/home/dev/Impala/fe/target/dependency/htrace-core-2.00.jar:/home/dev/Impala/fe/target/dependency/htrace-core-3.2.0-incubating.jar:/home/dev/Impala/fe/target/dependency/htrace-core4-4.0.1-incubating.jar:/home/dev/Impala/fe/target/dependency/httpclient-4.2.5.jar:/home/dev/Impala/fe/target/dependency/httpcore-4.2.5.jar:/home/dev/Impala/fe/target/dependency/impala-data-source-api-1.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/jackson-annotations-2.2.3.jar:/home/dev/Impala/fe/target/dependency/jackson-core-2.2.3.jar:/home/dev/Impala/fe/target/dependency/jackson-core-asl-1.8.8.jar:/home/dev/Impala/fe/target/dependency/jackson-databind-2.2.3.jar:/home/dev/Impala/fe/target/dependency/jackson-jaxrs-1.8.3.jar:/home/dev/Impala/fe/target/dependency/jackson-mapper-asl-1.8.8.jar:/home/dev/Impala/fe/target/dependency/jackson-xc-1.8.3.jar:/home/dev/Impala/fe/target/dependency/jamon-runtime-2.3.1.jar:/home/dev/Impala/fe/target/dependency/janino-2.7.6.jar:/home/dev/Impala/fe/target/dependency/jasper-compiler-5.5.23.jar:/home/dev/Impala/fe/target/dependency/jasper-runtime-5.5.23.jar:/home/dev/Impala/fe/target/dependency/java-cup-0.11a.jar:/home/dev/Impala/fe/target/dependency/java-xmlbuilder-0.4.jar:/home/dev/Impala/fe/target/dependency/javassist-3.18.1-GA.jar:/home/dev/Impala/fe/target/dependency/javax.inject-1.jar:/home/dev/Impala/fe/target/dependency/javax.json-1.0.2.jar:/home/dev/Impala/fe/target/dependency/javax.servlet-2.5.0.v201103041518.jar:/home/dev/Impala/fe/target/dependency/jaxb-api-2.2.2.jar:/home/dev/Impala/fe/target/dependency/jaxb-impl-2.2.3-1.jar:/home/dev/Impala/fe/target/dependency/jcodings-1.0.8.jar:/home/dev/Impala/fe/target/dependency/jdo-api-3.0.1.jar:/home/dev/Impala/fe/target/dependency/jersey-client-1.9.jar:/home/dev/Impala/fe/target/dependency/jersey-core-1.9.jar:/home/dev/Impala/fe/target/dependency/jersey-guice-1.9.jar:/home/dev/Impala/fe/target/dependency/jersey-json-1.9.jar:/home/dev/Impala/fe/target/dependency/jersey-server-1.9.jar:/home/dev/Impala/fe/target/dependency/jersey-servlet-1.14.jar:/home/dev/Impala/fe/target/dependency/jets3t-0.9.0.jar:/home/dev/Impala/fe/target/dependency/jettison-1.1.jar:/home/dev/Impala/fe/target/dependency/jetty-6.1.26.cloudera.4.jar:/home/dev/Impala/fe/target/dependency/jetty-all-7.6.0.v20120127.jar:/home/dev/Impala/fe/target/dependency/jetty-continuation-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jetty-http-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jetty-io-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jetty-security-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jetty-server-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jetty-servlet-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jetty-util-6.1.26.cloudera.4.jar:/home/dev/Impala/fe/target/dependency/jetty-util-7.6.16.v20140903.jar:/home/dev/Impala/fe/target/dependency/jline-2.12.jar:/home/dev/Impala/fe/target/dependency/joda-time-2.8.1.jar:/home/dev/Impala/fe/target/dependency/joni-2.1.2.jar:/home/dev/Impala/fe/target/dependency/jpam-1.1.jar:/home/dev/Impala/fe/target/dependency/jsch-0.1.42.jar:/home/dev/Impala/fe/target/dependency/json-simple-1.1.1.jar:/home/dev/Impala/fe/target/dependency/jsp-api-2.1.jar:/home/dev/Impala/fe/target/dependency/jsr305-3.0.0.jar:/home/dev/Impala/fe/target/dependency/jta-1.1.jar:/home/dev/Impala/fe/target/dependency/leveldbjni-all-1.8.jar:/home/dev/Impala/fe/target/dependency/libfb303-0.9.0.jar:/home/dev/Impala/fe/target/dependency/libthrift-0.9.0.jar:/home/dev/Impala/fe/target/dependency/log4j-1.2.17.jar:/home/dev/Impala/fe/target/dependency/logredactor-1.0.3.jar:/home/dev/Impala/fe/target/dependency/mail-1.4.1.jar:/home/dev/Impala/fe/target/dependency/metrics-core-3.0.2.jar:/home/dev/Impala/fe/target/dependency/metrics-healthchecks-3.0.2.jar:/home/dev/Impala/fe/target/dependency/metrics-json-3.0.2.jar:/home/dev/Impala/fe/target/dependency/metrics-jvm-3.0.2.jar:/home/dev/Impala/fe/target/dependency/metrics-servlets-3.0.2.jar:/home/dev/Impala/fe/target/dependency/netty-3.6.2.Final.jar:/home/dev/Impala/fe/target/dependency/netty-all-4.0.23.Final.jar:/home/dev/Impala/fe/target/dependency/opencsv-2.3.jar:/home/dev/Impala/fe/target/dependency/oro-2.0.8.jar:/home/dev/Impala/fe/target/dependency/paranamer-2.3.jar:/home/dev/Impala/fe/target/dependency/parquet-hadoop-bundle-1.5.0-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/pentaho-aggdesigner-algorithm-5.1.5-jhyde.jar:/home/dev/Impala/fe/target/dependency/postgresql-9.0-801.jdbc4.jar:/home/dev/Impala/fe/target/dependency/protobuf-java-2.5.0.jar:/home/dev/Impala/fe/target/dependency/sentry-binding-hive-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-core-common-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-core-model-db-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-core-model-search-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-policy-common-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-policy-db-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-policy-search-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-provider-cache-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-provider-common-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/sentry-provider-db-1.5.1-cdh5.7.0-SNAPSHOT-sh.jar:/home/dev/Impala/fe/target/dependency/sentry-provider-file-1.5.1-cdh5.7.0-SNAPSHOT.jar:/home/dev/Impala/fe/target/dependency/servlet-api-2.5.jar:/home/dev/Impala/fe/target/dependency/shiro-core-1.2.1.jar:/home/dev/Impala/fe/target/dependency/slf4j-api-1.7.5.jar:/home/dev/Impala/fe/target/dependency/slf4j-log4j12-1.7.5.jar:/home/dev/Impala/fe/target/dependency/snappy-java-1.0.4.1.jar:/home/dev/Impala/fe/target/dependency/stax-api-1.0-2.jar:/home/dev/Impala/fe/target/dependency/stax-api-1.0.1.jar:/home/dev/Impala/fe/target/dependency/stringtemplate-3.2.1.jar:/home/dev/Impala/fe/target/dependency/super-csv-2.2.0.jar:/home/dev/Impala/fe/target/dependency/velocity-1.5.jar:/home/dev/Impala/fe/target/dependency/xercesImpl-2.9.1.jar:/home/dev/Impala/fe/target/dependency/xml-apis-1.3.04.jar:/home/dev/Impala/fe/target/dependency/xmlenc-0.52.jar:/home/dev/Impala/fe/target/dependency/xz-1.0.jar:/home/dev/Impala/fe/target/dependency/zookeeper-3.4.5-cdh5.7.0-SNAPSHOT.jar
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.library.path=/home/dev/Impala/thirdparty/hadoop-2.6.0-cdh5.7.0-SNAPSHOT//lib/native/:/home/dev/Impala/be/build/debug/service
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:os.name=Linux
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:os.arch=amd64
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:os.version=3.13.0-43-generic
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:user.name=dev
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:user.home=/home/dev
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Client environment:user.dir=/home/dev
+16/03/31 16:09:57 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=localhost:2181 sessionTimeout=90000 watcher=hconnection-0x19e67b2d0x0, quorum=localhost:2181, baseZNode=/hbase
+16/03/31 16:09:57 INFO zookeeper.ClientCnxn: Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+16/03/31 16:09:57 INFO zookeeper.ClientCnxn: Socket connection established, initiating session, client: /127.0.0.1:50160, server: localhost/127.0.0.1:2181
+16/03/31 16:09:57 INFO zookeeper.ClientCnxn: Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x153ca10b0040037, negotiated timeout = 90000
+W0331 16:09:57.454090 26620 disk-io-mgr.cc:254] This machine does not support sse4_2.  The default IO system configurations are suboptimal for this hardware.  Consider increasing the number of threads per disk by restarting impalad using the --num_threads_per_disk flag with a higher value
+I0331 16:09:57.469316 26620 GlogAppender.java:123] Logging initialized. Impala: VLOG, All other: INFO
+I0331 16:09:57.473017 26620 JniFrontend.java:124] Authorization is 'DISABLED'.
+I0331 16:09:57.473183 26620 JniFrontend.java:126] Java Version Info: Java(TM) SE Runtime Environment (1.7.0_80-b15)
+W0331 16:09:58.049131 26620 HiveConf.java:2712] HiveConf of name hive.access.conf.url does not exist
+I0331 16:09:58.102476 26620 Db.java:114] Loading functions for database :_impala_builtins
+I0331 16:09:58.462532 26620 simple-scheduler.cc:103] Admission control is disabled.
+I0331 16:09:58.464772 26620 impala-server.cc:1107] Default query options:TQueryOptions {
+  01: abort_on_error (bool) = false,
+  02: max_errors (i32) = 0,
+  03: disable_codegen (bool) = false,
+  04: batch_size (i32) = 0,
+  05: num_nodes (i32) = 0,
+  06: max_scan_range_length (i64) = 0,
+  07: num_scanner_threads (i32) = 0,
+  08: max_io_buffers (i32) = 0,
+  09: allow_unsupported_formats (bool) = false,
+  10: default_order_by_limit (i64) = -1,
+  11: debug_action (string) = "",
+  12: mem_limit (i64) = 0,
+  13: abort_on_default_limit_exceeded (bool) = false,
+  15: hbase_caching (i32) = 0,
+  16: hbase_cache_blocks (bool) = false,
+  17: parquet_file_size (i64) = 0,
+  18: explain_level (i32) = 1,
+  19: sync_ddl (bool) = false,
+  23: disable_cached_reads (bool) = false,
+  24: disable_outermost_topn (bool) = false,
+  25: rm_initial_mem (i64) = 0,
+  26: query_timeout_s (i32) = 0,
+  28: appx_count_distinct (bool) = false,
+  29: disable_unsafe_spills (bool) = false,
+  31: exec_single_node_rows_threshold (i32) = 100,
+  32: optimize_partition_key_scans (bool) = false,
+}
+I0331 16:09:58.679675 26620 tmp-file-mgr.cc:106] Using scratch directory /tmp/impala-scratch on disk -1
+I0331 16:09:58.679965 26620 simple-logger.cc:76] Logging to: /tmp/profiles//impala_profile_log_1.1-1459465798679
+I0331 16:09:58.680218 26620 impala-server.cc:494] Event logging is disabled
+I0331 16:09:58.680234 26620 impala-server.cc:402] Lineage logging is disabled
+I0331 16:09:58.703768 26620 impala-server.cc:1760] Impala Beeswax Service listening on 21000
+I0331 16:09:58.705852 26620 impala-server.cc:1782] Impala HiveServer2 Service listening on 21050
+I0331 16:09:58.707877 26620 impala-server.cc:1802] ImpalaInternalService listening on 22000
+I0331 16:09:58.708358 26620 thrift-server.cc:431] ThriftServer 'backend' started on port: 22000
+I0331 16:09:58.708375 26620 exec-env.cc:296] Starting global services
+I0331 16:09:58.722632 26620 exec-env.cc:383] Using global memory limit: 50.33 GB
+I0331 16:09:58.724575 26620 webserver.cc:216] Starting webserver on 0.0.0.0:25000
+I0331 16:09:58.724609 26620 webserver.cc:230] Document root: /home/dev/Impala
+I0331 16:09:58.724807 26620 webserver.cc:315] Webserver started
+I0331 16:09:58.724825 26620 simple-scheduler.cc:183] Starting simple scheduler
+I0331 16:09:58.725163 26620 simple-scheduler.cc:231] Simple-scheduler using 127.0.0.1 as IP address
+I0331 16:09:58.725185 26620 statestore-subscriber.cc:179] Starting statestore subscriber
+I0331 16:09:58.727684 26620 thrift-server.cc:431] ThriftServer 'StatestoreSubscriber' started on port: 23000
+I0331 16:09:58.727700 26620 statestore-subscriber.cc:190] Registering with statestore
+I0331 16:09:58.729012 26620 statestore-subscriber.cc:163] Subscriber registration ID: d4741dc0e876fc6:810692ae75784e8c
+I0331 16:09:58.729095 26620 statestore-subscriber.cc:194] statestore registration successful
+I0331 16:09:58.750547 26620 thrift-server.cc:431] ThriftServer 'beeswax-frontend' started on port: 21000
+I0331 16:09:58.758687 26620 thrift-server.cc:431] ThriftServer 'hiveserver2-frontend' started on port: 21050
+I0331 16:09:58.758766 26620 impalad-main.cc:90] Impala has started.
+W0331 16:09:58.971269 26714 HiveConf.java:2712] HiveConf of name hive.access.conf.url does not exist
+I0331 16:09:58.976279 26714 Db.java:114] Loading functions for database :_impala_builtins
+I0331 16:09:59.144954 26714 Db.java:114] Loading functions for database :default
+I0331 16:09:59.170202 26714 simple-scheduler.cc:339] Registering local backend with statestore
