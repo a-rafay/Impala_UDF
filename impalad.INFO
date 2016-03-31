@@ -1,0 +1,386 @@
+Log file created at: 2016/03/31 12:23:44
+Running on machine: localhost
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0331 12:23:44.205320 20871 logging.cc:119] stdout will be logged to this file.
+E0331 12:23:44.205624 20871 logging.cc:120] stderr will be logged to this file.
+I0331 12:23:44.206512 20871 authentication.cc:975] Internal communication is not authenticated
+I0331 12:23:44.206524 20871 authentication.cc:996] External communication is not authenticated
+I0331 12:23:44.206723 20871 init.cc:158] impalad version 2.5.0-cdh5-INTERNAL DEBUG (build d8bdfaecf57999e0cb0fa4a8b26507a3781bf665)
+Built on Wed, 30 Mar 2016 14:13:37 PST
+I0331 12:23:44.206729 20871 init.cc:159] Using hostname: localhost
+I0331 12:23:44.207517 20871 logging.cc:155] Flags (see also /varz are on debug webserver):
+--catalog_service_port=26000
+--load_catalog_in_background=false
+--num_metadata_loading_threads=16
+--sentry_config=
+--disable_optimization_passes=false
+--dump_ir=false
+--opt_module_dir=
+--print_llvm_ir_instruction_count=false
+--unopt_module_dir=
+--abort_on_config_error=true
+--be_port=22000
+--be_principal=
+--compact_catalog_topic=false
+--disable_mem_pools=false
+--enable_process_lifetime_heap_profiling=false
+--heap_profile_dir=
+--hostname=localhost
+--keytab_file=
+--krb5_conf=
+--krb5_debug_file=
+--mem_limit=80%
+--principal=
+--redaction_rules_file=
+--stress_free_pool_alloc=0
+--max_log_files=10
+--log_filename=impalad
+--redirect_stdout_stderr=true
+--data_source_batch_size=1024
+--exchg_node_buffer_size_bytes=10485760
+--enable_partitioned_aggregation=true
+--enable_partitioned_hash_join=true
+--enable_probe_side_filtering=true
+--enable_quadratic_probing=true
+--skip_lzo_version_check=false
+--convert_legacy_hive_parquet_utc_timestamps=false
+--max_page_header_size=8388608
+--max_row_batches=0
+--suppress_unknown_disk_id_warnings=false
+--debug_disable_streaming_gzip=false
+--enable_phj_probe_side_filtering=true
+--enable_ldap_auth=false
+--kerberos_reinit_interval=60
+--ldap_allow_anonymous_binds=false
+--ldap_baseDN=
+--ldap_bind_pattern=
+--ldap_ca_certificate=
+--ldap_domain=
+--ldap_manual_config=false
+--ldap_passwords_in_clear_ok=false
+--ldap_tls=false
+--ldap_uri=
+--sasl_path=
+--rpc_cnxn_attempts=10
+--rpc_cnxn_retry_interval_ms=2000
+--disk_spill_encryption=false
+--insert_inherit_permissions=false
+--datastream_timeout_ms=60000
+--max_cached_file_handles=0
+--max_free_io_buffers=128
+--min_buffer_size=1024
+--num_disks=0
+--num_remote_hdfs_io_threads=8
+--num_s3_io_threads=16
+--num_threads_per_disk=0
+--read_size=8388608
+--catalog_service_host=localhost
+--cgroup_hierarchy_path=
+--enable_rm=false
+--enable_webserver=true
+--llama_addresses=
+--llama_callback_port=28000
+--llama_host=
+--llama_max_request_attempts=5
+--llama_port=15000
+--llama_registration_timeout_secs=30
+--llama_registration_wait_secs=3
+--num_hdfs_worker_threads=16
+--resource_broker_cnxn_attempts=1
+--resource_broker_cnxn_retry_interval_ms=3000
+--resource_broker_recv_timeout=0
+--resource_broker_send_timeout=0
+--staging_cgroup=impala_staging
+--state_store_host=localhost
+--state_store_subscriber_port=23000
+--use_statestore=true
+--local_library_dir=/tmp
+--serialize_batch=false
+--status_report_interval=5
+--num_threads_per_core=3
+--use_local_tz_for_unix_timestamp_conversions=false
+--scratch_dirs=/tmp
+--queue_wait_timeout_ms=60000
+--max_vcore_oversubscription_ratio=2.5
+--rm_mem_expansion_timeout_ms=5000
+--rm_always_use_defaults=false
+--rm_default_cpu_vcores=2
+--rm_default_memory=4G
+--default_pool_max_queued=200
+--default_pool_max_requests=200
+--default_pool_mem_limit=
+--disable_pool_max_requests=false
+--disable_pool_mem_limits=false
+--fair_scheduler_allocation_path=
+--llama_site_path=
+--disable_admission_control=true
+--require_username=false
+--log_mem_usage_interval=0
+--authorization_policy_file=
+--authorization_policy_provider_class=org.apache.sentry.provider.common.HadoopGroupResourceAuthorizationProvider
+--authorized_proxy_user_config=
+--authorized_proxy_user_config_delimiter=,
+--load_catalog_at_startup=false
+--server_name=
+--abort_on_failed_audit_event=true
+--abort_on_failed_lineage_event=true
+--audit_event_log_dir=
+--be_service_threads=64
+--beeswax_port=21000
+--cancellation_thread_pool_size=5
+--default_query_options=
+--fe_service_threads=64
+--hs2_port=21050
+--idle_query_timeout=0
+--idle_session_timeout=0
+--lineage_event_log_dir=
+--local_nodemanager_url=
+--log_query_to_file=true
+--max_audit_event_log_file_size=5000
+--max_lineage_log_file_size=5000
+--max_profile_log_file_size=5000
+--max_result_cache_size=100000
+--profile_log_dir=
+--query_log_size=25
+--ssl_client_ca_certificate=
+--ssl_private_key=
+--ssl_private_key_password_cmd=
+--ssl_server_certificate=
+--statestore_subscriber_cnxn_attempts=10
+--statestore_subscriber_cnxn_retry_interval_ms=3000
+--statestore_subscriber_timeout_seconds=30
+--state_store_port=24000
+--statestore_heartbeat_frequency_ms=1000
+--statestore_heartbeat_tcp_timeout_seconds=3
+--statestore_max_missed_heartbeats=10
+--statestore_num_heartbeat_threads=10
+--statestore_num_update_threads=10
+--statestore_update_frequency_ms=2000
+--statestore_update_tcp_timeout_seconds=300
+--force_lowercase_usernames=false
+--num_cores=0
+--web_log_bytes=1048576
+--non_impala_java_vlog=0
+--periodic_counter_update_period_ms=500
+--enable_webserver_doc_root=true
+--webserver_authentication_domain=
+--webserver_certificate_file=
+--webserver_doc_root=/home/dev/Impala
+--webserver_interface=
+--webserver_password_file=
+--webserver_port=25000
+--webserver_private_key_file=
+--webserver_private_key_password_cmd=
+--flagfile=
+--fromenv=
+--tryfromenv=
+--undefok=
+--tab_completion_columns=80
+--tab_completion_word=
+--help=false
+--helpfull=false
+--helpmatch=
+--helpon=
+--helppackage=false
+--helpshort=false
+--helpxml=false
+--version=false
+--alsologtoemail=
+--alsologtostderr=false
+--drop_log_memory=true
+--log_backtrace_at=
+--log_dir=/tmp
+--log_link=
+--log_prefix=true
+--logbuflevel=0
+--logbufsecs=5
+--logemaillevel=999
+--logmailer=/bin/mail
+--logtostderr=false
+--max_log_size=1800
+--minloglevel=0
+--stderrthreshold=4
+--stop_logging_if_full_disk=false
+--symbolize_stacktrace=true
+--v=1
+--vmodule=
+I0331 12:23:44.207615 20871 init.cc:164] Cpu Info:
+  Model: AMD Opteron(tm) Processor 6128
+  Cores: 16
+  L1 Cache: 64.00 KB
+  L2 Cache: 512.00 KB
+  L3 Cache: 10.00 MB
+  Hardware Supports:
+    popcnt
+I0331 12:23:44.207624 20871 init.cc:165] Disk Info: 
+  Num disks 3: 
+    sda (rotational=true)
+    sdb (rotational=true)
+    sr (rotational=true)
+
+I0331 12:23:44.207633 20871 init.cc:166] Physical Memory: 62.92 GB
+I0331 12:23:44.207639 20871 init.cc:167] OS version: Linux version 3.13.0-43-generic (buildd@tipua) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #72-Ubuntu SMP Mon Dec 8 19:35:06 UTC 2014
+I0331 12:23:44.207643 20871 init.cc:168] Process ID: 20871
+I0331 12:23:49.207432 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.INFO.20160330-172812.3817
+I0331 12:23:49.207551 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.INFO.20160330-173806.5970
+I0331 12:23:49.208185 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.WARNING.20160330-172812.3817
+I0331 12:23:49.208261 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.WARNING.20160330-173806.5970
+I0331 12:23:49.208333 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.WARNING.20160330-174557.8273
+I0331 12:23:49.208919 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.ERROR.20160330-172812.3817
+I0331 12:23:49.209000 20882 logging.cc:194] Old log file deleted during log rotation: /tmp/impalad.localhost.dev.log.ERROR.20160330-173806.5970
+I0331 12:24:32.382397 20871 hbase-table-scanner.cc:157] Detected HBase version >= 0.95.2
+W0331 12:24:32.974215 20871 disk-io-mgr.cc:254] This machine does not support sse4_2.  The default IO system configurations are suboptimal for this hardware.  Consider increasing the number of threads per disk by restarting impalad using the --num_threads_per_disk flag with a higher value
+I0331 12:24:32.989620 20871 GlogAppender.java:123] Logging initialized. Impala: VLOG, All other: INFO
+I0331 12:24:32.993458 20871 JniFrontend.java:124] Authorization is 'DISABLED'.
+I0331 12:24:32.993602 20871 JniFrontend.java:126] Java Version Info: Java(TM) SE Runtime Environment (1.7.0_80-b15)
+W0331 12:24:33.579977 20871 HiveConf.java:2712] HiveConf of name hive.access.conf.url does not exist
+I0331 12:24:33.637590 20871 Db.java:114] Loading functions for database :_impala_builtins
+I0331 12:24:34.005271 20871 simple-scheduler.cc:103] Admission control is disabled.
+I0331 12:24:34.007479 20871 impala-server.cc:1107] Default query options:TQueryOptions {
+  01: abort_on_error (bool) = false,
+  02: max_errors (i32) = 0,
+  03: disable_codegen (bool) = false,
+  04: batch_size (i32) = 0,
+  05: num_nodes (i32) = 0,
+  06: max_scan_range_length (i64) = 0,
+  07: num_scanner_threads (i32) = 0,
+  08: max_io_buffers (i32) = 0,
+  09: allow_unsupported_formats (bool) = false,
+  10: default_order_by_limit (i64) = -1,
+  11: debug_action (string) = "",
+  12: mem_limit (i64) = 0,
+  13: abort_on_default_limit_exceeded (bool) = false,
+  15: hbase_caching (i32) = 0,
+  16: hbase_cache_blocks (bool) = false,
+  17: parquet_file_size (i64) = 0,
+  18: explain_level (i32) = 1,
+  19: sync_ddl (bool) = false,
+  23: disable_cached_reads (bool) = false,
+  24: disable_outermost_topn (bool) = false,
+  25: rm_initial_mem (i64) = 0,
+  26: query_timeout_s (i32) = 0,
+  28: appx_count_distinct (bool) = false,
+  29: disable_unsafe_spills (bool) = false,
+  31: exec_single_node_rows_threshold (i32) = 100,
+  32: optimize_partition_key_scans (bool) = false,
+}
+I0331 12:24:34.293566 20871 tmp-file-mgr.cc:106] Using scratch directory /tmp/impala-scratch on disk -1
+I0331 12:24:34.293869 20871 simple-logger.cc:76] Logging to: /tmp/profiles//impala_profile_log_1.1-1459452274293
+I0331 12:24:34.294144 20871 impala-server.cc:494] Event logging is disabled
+I0331 12:24:34.294180 20871 impala-server.cc:402] Lineage logging is disabled
+I0331 12:24:34.320708 20871 impala-server.cc:1760] Impala Beeswax Service listening on 21000
+I0331 12:24:34.322777 20871 impala-server.cc:1782] Impala HiveServer2 Service listening on 21050
+I0331 12:24:34.324808 20871 impala-server.cc:1802] ImpalaInternalService listening on 22000
+I0331 12:24:34.325232 20871 thrift-server.cc:431] ThriftServer 'backend' started on port: 22000
+I0331 12:24:34.325244 20871 exec-env.cc:296] Starting global services
+I0331 12:24:34.340932 20871 exec-env.cc:383] Using global memory limit: 50.33 GB
+I0331 12:24:34.342839 20871 webserver.cc:216] Starting webserver on 0.0.0.0:25000
+I0331 12:24:34.342864 20871 webserver.cc:230] Document root: /home/dev/Impala
+I0331 12:24:34.343085 20871 webserver.cc:315] Webserver started
+I0331 12:24:34.343097 20871 simple-scheduler.cc:183] Starting simple scheduler
+I0331 12:24:34.343456 20871 simple-scheduler.cc:231] Simple-scheduler using 127.0.0.1 as IP address
+I0331 12:24:34.343472 20871 statestore-subscriber.cc:179] Starting statestore subscriber
+I0331 12:24:34.345947 20871 thrift-server.cc:431] ThriftServer 'StatestoreSubscriber' started on port: 23000
+I0331 12:24:34.345957 20871 statestore-subscriber.cc:190] Registering with statestore
+I0331 12:24:34.347076 20871 statestore-subscriber.cc:163] Subscriber registration ID: 5842c4d876cf5c67:bbd0db8f61531b3
+I0331 12:24:34.347110 20871 statestore-subscriber.cc:194] statestore registration successful
+I0331 12:24:34.352260 20871 thrift-server.cc:431] ThriftServer 'beeswax-frontend' started on port: 21000
+I0331 12:24:34.356901 20871 thrift-server.cc:431] ThriftServer 'hiveserver2-frontend' started on port: 21050
+I0331 12:24:34.356914 20871 impalad-main.cc:90] Impala has started.
+W0331 12:24:34.531267 21115 HiveConf.java:2712] HiveConf of name hive.access.conf.url does not exist
+I0331 12:24:34.537107 21115 Db.java:114] Loading functions for database :_impala_builtins
+I0331 12:24:34.705176 21115 Db.java:114] Loading functions for database :default
+I0331 12:24:34.731989 21115 simple-scheduler.cc:339] Registering local backend with statestore
+I0331 12:24:50.606503 21112 impala-beeswax-server.cc:172] query(): query=select corr(x,y) from corrtest
+I0331 12:24:50.606627 21112 impala-beeswax-server.cc:515] query: Query {
+  01: query (string) = "select corr(x,y) from corrtest",
+  03: configuration (list) = list<string>[0] {
+  },
+  04: hadoop_user (string) = "dev",
+}
+I0331 12:24:50.606685 21112 impala-beeswax-server.cc:537] TClientRequest.queryOptions: TQueryOptions {
+  01: abort_on_error (bool) = false,
+  02: max_errors (i32) = 0,
+  03: disable_codegen (bool) = false,
+  04: batch_size (i32) = 0,
+  05: num_nodes (i32) = 0,
+  06: max_scan_range_length (i64) = 0,
+  07: num_scanner_threads (i32) = 0,
+  08: max_io_buffers (i32) = 0,
+  09: allow_unsupported_formats (bool) = false,
+  10: default_order_by_limit (i64) = -1,
+  11: debug_action (string) = "",
+  12: mem_limit (i64) = 0,
+  13: abort_on_default_limit_exceeded (bool) = false,
+  15: hbase_caching (i32) = 0,
+  16: hbase_cache_blocks (bool) = false,
+  17: parquet_file_size (i64) = 0,
+  18: explain_level (i32) = 1,
+  19: sync_ddl (bool) = false,
+  23: disable_cached_reads (bool) = false,
+  24: disable_outermost_topn (bool) = false,
+  25: rm_initial_mem (i64) = 0,
+  26: query_timeout_s (i32) = 0,
+  28: appx_count_distinct (bool) = false,
+  29: disable_unsafe_spills (bool) = false,
+  31: exec_single_node_rows_threshold (i32) = 100,
+  32: optimize_partition_key_scans (bool) = false,
+}
+I0331 12:24:50.641079 21112 Frontend.java:864] analyze query select corr(x,y) from corrtest
+I0331 12:24:50.804862 21112 Frontend.java:808] Requesting prioritized load of table(s): default.corrtest
+I0331 12:24:56.949385 21112 AggregateInfo.java:181] agg info:
+AggregateInfo{grouping_exprs=, aggregate_exprs=FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}, intermediate_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}, output_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}}AggregateInfo{phase=FIRST, intermediate_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2})), output_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2}))}
+mergeAggInfo:
+AggregateInfo{grouping_exprs=, aggregate_exprs=FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{type=STRING, id=2}}, intermediate_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}, output_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}}AggregateInfo{phase=FIRST_MERGE, intermediate_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2})), output_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2}))}
+I0331 12:24:56.955442 21112 SelectStmt.java:283] post-analysis AggregateInfo{grouping_exprs=, aggregate_exprs=FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}, intermediate_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}, output_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}}AggregateInfo{phase=FIRST, intermediate_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2})), output_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2}))}
+mergeAggInfo:
+AggregateInfo{grouping_exprs=, aggregate_exprs=FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{type=STRING, id=2}}, intermediate_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}, output_tuple=TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=0, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=false, byteSize=0, byteOffset=-1, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}}AggregateInfo{phase=FIRST_MERGE, intermediate_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2})), output_smap=smap(corr(x, y):corr(x, y) (FunctionCallExpr{name=corr, isStar=false, isDistinct=false, SlotRef{path=x, type=DOUBLE, id=0} SlotRef{path=y, type=DOUBLE, id=1}}:SlotRef{type=STRING, id=2}))}
+I0331 12:24:56.996603 21112 Frontend.java:941] create plan
+I0331 12:24:57.040666 21112 HdfsScanNode.java:317] collecting partitions for table corrtest
+I0331 12:24:57.040891 21112 HdfsScanNode.java:369] computeStats HdfsScan: cardinality_=-1
+I0331 12:24:57.045040 21112 HdfsScanNode.java:425] computeNumNodes totalRanges=1 localRanges=1 remoteRanges=0 localHostSet.size=1 clusterNodes=3
+I0331 12:24:57.045207 21112 HdfsScanNode.java:372] computeStats HdfsScan: #nodes=1
+I0331 12:24:57.047878 21112 DistributedPlanner.java:77] create plan fragments
+I0331 12:24:57.047996 21112 DistributedPlanner.java:79] memlimit=0
+I0331 12:24:57.056480 21112 Planner.java:115] desctbl: tuples:
+TupleDescriptor{id=0, name=BaseTableRef default.corrtest, tbl=default.corrtest, byte_size=24, is_materialized=true, slots=[SlotDescriptor{id=0, path=default.corrtest.x, type=DOUBLE, materialized=true, byteSize=8, byteOffset=8, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=8.0, maxSize_=8, numDistinct_=-1, numNulls_=-1}}, SlotDescriptor{id=1, path=default.corrtest.y, type=DOUBLE, materialized=true, byteSize=8, byteOffset=16, nullIndicatorByte=0, nullIndicatorBit=1, slotIdx=1, stats=ColumnStats{avgSerializedSize_=8.0, maxSize_=8, numDistinct_=-1, numNulls_=-1}}]}
+TupleDescriptor{id=1, name=agg-tuple-intermed, tbl=null, byte_size=24, is_materialized=true, slots=[SlotDescriptor{id=2, path=null, type=STRING, materialized=true, byteSize=16, byteOffset=8, nullIndicatorByte=0, nullIndicatorBit=0, slotIdx=0, stats=ColumnStats{avgSerializedSize_=-1.0, maxSize_=-1, numDistinct_=-1, numNulls_=-1}}]}
+I0331 12:24:57.056658 21112 Planner.java:116] resultexprs: SlotRef{type=STRING, id=2}
+I0331 12:24:57.056733 21112 Planner.java:117] finalize plan fragments
+I0331 12:24:57.062834 21112 Frontend.java:967] get scan range locations
+I0331 12:24:57.102406 21112 Planner.java:277] Estimated per-host peak memory requirement: 44040192
+I0331 12:24:57.102516 21112 Planner.java:278] Estimated per-host virtual cores requirement: 1
+I0331 12:24:57.209760 21112 Frontend.java:1045] create result set metadata
+I0331 12:24:57.214833 21112 JniFrontend.java:142] Estimated Per-Host Requirements: Memory=42.00MB VCores=1
+WARNING: The following tables are missing relevant table and/or column statistics.
+default.corrtest
+
+03:AGGREGATE [FINALIZE]
+|  output: corr:merge(x, y)
+|  hosts=1 per-host-mem=unavailable
+|  tuple-ids=1 row-size=16B cardinality=1
+|
+02:EXCHANGE [UNPARTITIONED]
+|  hosts=1 per-host-mem=unavailable
+|  tuple-ids=1 row-size=16B cardinality=1
+|
+01:AGGREGATE
+|  output: corr(x, y)
+|  hosts=1 per-host-mem=10.00MB
+|  tuple-ids=1 row-size=16B cardinality=1
+|
+00:SCAN HDFS [default.corrtest, RANDOM]
+   partitions=1/1 files=1 size=51B
+   table stats: unavailable
+   column stats: unavailable
+   hosts=1 per-host-mem=32.00MB
+   tuple-ids=0 row-size=16B cardinality=unavailable
+I0331 12:24:57.245002 21112 coordinator.cc:317] Exec() query_id=994bf13a6512da19:2694e05a22df2482
+I0331 12:24:57.245198 21112 plan-fragment-executor.cc:85] Prepare(): query_id=994bf13a6512da19:2694e05a22df2482 instance_id=994bf13a6512da19:2694e05a22df2483
+I0331 12:24:57.245677 21112 plan-fragment-executor.cc:193] descriptor table for fragment=994bf13a6512da19:2694e05a22df2483
+tuples:
+Tuple(id=0 size=24 slots=[Slot(id=0 type=DOUBLE col_path=[0] offset=8 null=(offset=0 mask=1) slot_idx=0 field_idx=-1), Slot(id=1 type=DOUBLE col_path=[1] offset=16 null=(offset=0 mask=2) slot_idx=1 field_idx=-1)] tuple_path=[])
+Tuple(id=1 size=24 slots=[Slot(id=2 type=STRING col_path=[] offset=8 null=(offset=0 mask=1) slot_idx=0 field_idx=-1)] tuple_path=[])
+.
+# See problematic frame for where to report the bug.
+#
