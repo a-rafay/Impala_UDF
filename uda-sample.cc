@@ -18,6 +18,7 @@
 #include <math.h>
 #include <impala_udf/udf.h>
 
+
 using namespace impala_udf;
 using namespace std;
 
@@ -37,6 +38,301 @@ StringVal ToStringVal<DoubleVal>(FunctionContext* context, const DoubleVal& val)
   return ToStringVal(context, val.val);
 }
 
+// This function initializes StringVal 'dst' with a newly allocated buffer of
+// 'buf_len' bytes. The new buffer will be filled with zero. If allocation fails,
+// 'dst' will be set to a null string. This allows execution to continue until the
+// next time GetQueryStatus() is called (see IMPALA-2756).
+
+static const int k = 6;
+static int total = 0;
+
+struct Node {
+        int val;
+        Node* next;
+};
+
+struct linkedList {
+        Node* head;
+        int len;
+        linkedList() { len = 0; head = NULL; }
+
+        void insert (int val, FunctionContext* ctx) {
+                len++;
+
+		StringVal* dst;
+		dst->is_null = false;
+                dst->len = sizeof(Node);
+                dst->ptr = ctx->Allocate(dst->len);
+                memset(dst->ptr, 0, dst->len);
+
+                Node* nn = reinterpret_cast<Node*>(dst->ptr);// (Node*) malloc(sizeof(Node));
+                nn->val = val;
+                nn->next = NULL;
+                if (head == NULL) head = nn;
+                else {
+                        nn->next = head;
+                        head = nn;
+                }
+        }
+
+        void sort () {
+                if (len == 1) return;
+                Node* temp = head;
+                while (temp->next != NULL) {
+                        Node* second = temp->next;
+                        Node* min = temp;
+                        while (second != NULL) {
+				if (min->val > second->val) {
+                                        min = second;
+                                }
+                                second = second->next;
+                        }
+                        int tempVal = min->val;
+                        min->val = temp->val;
+                        temp->val = tempVal;
+                        temp = temp->next;
+                }
+        }
+
+	void pop() {
+                if (head == NULL) return;
+                len--;
+                Node* temp = head;
+                head = head->next;
+                free(temp);
+        }
+
+        int yieldPop() {
+                if (head == NULL) return -1;
+                len--;
+                Node* temp = head;
+                head = head->next;
+                int ret = temp->val;
+                free(temp);
+                return ret;
+        }
+
+        void extend(linkedList* _list) {
+		len+= _list->len;
+                if (head == NULL) {
+                        head = _list->head;
+                        return;
+                }
+                Node* _head = head;
+                while (_head->next != NULL) _head = _head->next;
+                _head->next = _list->head;
+        }
+};
+
+struct cNode {
+        linkedList val;
+        cNode* next;
+};
+
+struct compactor {
+        cNode* head;
+        int len;
+	int H;
+	int maxSize;
+        compactor() { H = 0; maxSize = 0; len = 0; head = NULL; }
+
+        void insert(int val, FunctionContext* ctx) {
+		total++;
+                if (head == NULL) grow(ctx);
+		head->val.insert(val, ctx);
+        }
+
+        int length(int compactorNumber) {
+                cNode* _head = head;
+                while (compactorNumber > 1) {
+                        compactorNumber--;
+                        _head = _head->next;
+                }
+                return _head->val.len;
+        }
+
+        int size() {
+                int Size = 0;
+                cNode* _head = head;
+                while (_head != NULL) {
+                        Size += _head->val.len;
+                        _head = _head->next;
+                }
+                return Size;
+        }
+
+
+	void grow(FunctionContext* ctx) {
+                len++;
+		
+		StringVal* dst;
+		dst->is_null = false;
+ 		dst->len = sizeof(cNode);
+ 		dst->ptr = ctx->Allocate(dst->len);
+ 		memset(dst->ptr, 0, dst->len);
+                
+		cNode* node = reinterpret_cast<cNode*>(dst->ptr); //(cNode*) malloc(sizeof(cNode));
+                node->next = NULL;
+                if (head == NULL) {
+                        head = node;
+                }
+                else {
+                        cNode* _head = head;
+                        while (_head->next != NULL) _head = _head->next;
+                        _head->next = node;
+                }
+                ++H;
+                int sum = 0;
+                for (int h = 1; h <= H; h++) {
+                        int iVal = upperBound(h);
+                        sum += (iVal +1);
+                }
+                maxSize = sum;
+        }
+
+        int upperBound (int h) {
+                double dVal = 2; dVal/= 3; dVal = pow(dVal, H-h);
+                dVal*= k;
+                return (ceil(dVal));
+        }
+	
+	void compact(FunctionContext* ctx) {
+                while (size() >= maxSize) {
+                        for (int h = 1; h <= H; h++) {
+                                if (length(h) >= (upperBound(h) +1)) {
+                                        if ((h+1) > H) grow(ctx);
+                                        extend(h+1,COMPACT(h, ctx));
+                                        if (size() < maxSize) break;
+                                }
+                        }
+                }
+        }
+
+	linkedList* getCompactor(int compactorNumber) {
+		cNode* _head = head;
+                while (compactorNumber > 1) {
+                        compactorNumber--;
+                        _head = _head->next;
+                }
+		return (&_head->val);
+	}
+
+        linkedList* COMPACT(int compactorNumber, FunctionContext* ctx) {
+                cNode* _head = head;
+                while (compactorNumber > 1) {
+                        compactorNumber--;
+                        _head = _head->next;
+                }
+                _head->val.sort();
+                srand(time(NULL));
+                int random = rand()%2;
+
+		StringVal* dst;
+		dst->is_null = false;
+                dst->len = sizeof(linkedList);
+                dst->ptr = ctx->Allocate(dst->len);
+                memset(dst->ptr, 0, dst->len);
+
+                linkedList* _list = reinterpret_cast<linkedList*>(dst->ptr); //(linkedList*) malloc(sizeof(linkedList));
+                if (random == 0) {
+                        while (_head->val.len >= 2) {
+                                _head->val.pop();
+                                _list->insert(_head->val.yieldPop(), ctx);
+                        }
+                }
+                else {
+                        while (_head->val.len >= 2) {
+                                _list->insert(_head->val.yieldPop(), ctx);
+                                _head->val.pop();
+                        }
+                }
+                return _list;
+        }
+
+	void extend (int compactorNumber, linkedList* _list) {
+                cNode* _head = head;
+                while (compactorNumber > 1) {
+                        compactorNumber--;
+                        _head = _head->next;
+                }
+                _head->val.extend(_list);
+                _list->head = NULL;
+        }
+	
+	int rank (int x) {
+		int r = 0;
+		cNode* _head = head;
+		for (int h = 1; h <= H; h++) {
+			Node* first = _head->val.head;
+			while (first != NULL) {
+				if (first->val <= x) r += pow(2,h-1);
+				first = first->next;
+			}
+			_head = _head->next;
+		}
+		r = (int) (r*100/total);
+		return r;
+	}
+};
+
+void MedianInit(FunctionContext* ctx, StringVal* dst) {
+  dst->is_null = false;
+  dst->len = sizeof(compactor);
+  dst->ptr = ctx->Allocate(dst->len);
+  memset(dst->ptr, 0, dst->len);
+}
+
+void MedianUpdate(FunctionContext* ctx, const DoubleVal& src, StringVal* dst) {
+  if (src.is_null) return;
+  compactor* state = reinterpret_cast<compactor*>(dst->ptr);
+  state->insert(src.val, ctx);
+  state->compact(ctx);
+}
+
+void MedianMerge(FunctionContext* ctx, const StringVal& src, StringVal* dst) {
+/*  compactor* src_state;
+  compactor* dst_state;
+
+  if (dst_state->H >= src_state->H) {
+  	src_state = reinterpret_cast<compactor*>(src.ptr);
+  	dst_state = reinterpret_cast<compactor*>(dst->ptr);
+  }
+  else {
+	dst_state = reinterpret_cast<compactor*>(src.ptr);
+	src_state = reinterpret_cast<compactor*>(dst->ptr);
+  }
+
+  for (int h = 1; h <= src_state->H; h++) {
+	dst_state->extend(h,src_state->getCompactor(h));
+  }
+  dst_state->compact();
+*/}
+
+StringVal MedianFinalize(FunctionContext* ctx, const StringVal& src) {
+  compactor state = *reinterpret_cast<compactor*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (total == 0) return StringVal::null();
+  
+  int median = 100;
+  int medianVal = 100;
+  return ToStringVal(ctx, medianVal);
+  cNode* _head = state.head;
+  while (_head != NULL) {
+	Node* first = _head->val.head;
+	while (first != NULL) {
+		int retVal = state.rank(first->val);
+		retVal -= 50;
+		retVal = abs(retVal);
+		if (retVal < median) {
+			median = retVal;
+			medianVal = first->val;
+		}
+		first = first->next;
+	}
+	_head = _head->next;
+  }
+  return ToStringVal(ctx, medianVal); 
+}
 
 // ===========================================
 // =========== CORRELATION ===================
