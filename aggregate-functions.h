@@ -60,6 +60,22 @@ class AggregateFunctions {
   static void CorrMerge(FunctionContext* ctx, const StringVal& src, StringVal* dst);
   static const StringVal CorrSerialize(FunctionContext* ctx, const StringVal& src);
   static DoubleVal CorrFinalize(FunctionContext* ctx, const StringVal& src);
+  
+  // COVAR_POP
+  
+  static DoubleVal CovarFinalize(FunctionContext* ctx, const StringVal& src);
+  
+  // REGR_SLOPE 
+  
+  static DoubleVal Regr_SlopeFinalize(FunctionContext* ctx, const StringVal& src);
+  
+  // REGR_INTERCEPT
+  
+  static DoubleVal Regr_InterceptFinalize(FunctionContext* ctx, const StringVal& src);
+  
+  // REGR_R2
+  
+  static DoubleVal Regr_R2Finalize(FunctionContext* ctx, const StringVal& src);
 
   /// Implementation of Count and Count(*)
   static void CountUpdate(FunctionContext*, const AnyVal& src, BigIntVal* dst);
