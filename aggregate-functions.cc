@@ -578,7 +578,7 @@ DoubleVal AggregateFunctions::CorrFinalize(FunctionContext* ctx, const StringVal
 DoubleVal AggregateFunctions::CovarFinalize(FunctionContext* ctx, const StringVal& src) {
   CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
   ctx->Free(src.ptr);
-  if (state.count == 0 || state.count == 1) return StringVal::null();
+  if (state.count == 0 || state.count == 1) return DoubleVal::null();
   double covar = ((state.prod*state.count) - (state.sumx*state.sumy)) / (state.count * (state.count - 1));
   return DoubleVal(covar);
 }
@@ -591,7 +591,7 @@ DoubleVal AggregateFunctions::CovarFinalize(FunctionContext* ctx, const StringVa
 DoubleVal AggregateFunctions::Regr_SlopeFinalize(FunctionContext* ctx, const StringVal& src) {
   CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
   ctx->Free(src.ptr);
-  if (state.count == 0 || state.count == 1) return StringVal::null();
+  if (state.count == 0 || state.count == 1) return DoubleVal::null();
   double regr_slope = ((state.prod*state.count) - (state.sumx*state.sumy)) / ((state.count*state.sum_squaredx) - (state.sumx*state.sumx));
   return DoubleVal(regr_slope);
 }
@@ -604,7 +604,7 @@ DoubleVal AggregateFunctions::Regr_SlopeFinalize(FunctionContext* ctx, const Str
 DoubleVal AggregateFunctions::Regr_InterceptFinalize(FunctionContext* ctx, const StringVal& src) {
   CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
   ctx->Free(src.ptr);
-  if (state.count == 0 || state.count == 1) return StringVal::null();
+  if (state.count == 0 || state.count == 1) return DoubleVal::null();
   double regr_intercept = (state.sumy - (((state.prod*state.count) - (state.sumx*state.sumy)) / ((state.count*state.sum_squaredx) - (state.sumx*state.sumx)))*state.sumx) / state.count;
   return DoubleVal(regr_intercept);
 }
@@ -618,10 +618,10 @@ DoubleVal AggregateFunctions::Regr_R2Finalize(FunctionContext* ctx, const String
   CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
   ctx->Free(src.ptr);
   double vary = (state.sum_squaredy/state.count) - (pow((state.sumy/state.count),2));
-  if (vary == 0 || state.count == 0 || state.count == 1) return StringVal::null();
+  if (vary == 0 || state.count == 0 || state.count == 1) return DoubleVal::null();
 
   double varx = (state.sum_squaredx/state.count) - (pow((state.sumx/state.count),2));
-  if (varx == 0) return ToStringVal(ctx, 1);
+  if (varx == 0) return DoubleVal(1);
 
   // Calculating correlation coefficient using Pearson Product Moment Correlation formula
   double corr = ((state.prod*state.count) - (state.sumx*state.sumy)) / (pow((((state.count*state.sum_squaredx) - (state.sumx*state.sumx)) * ((state.count*state.sum_squaredy) - (state.sumy*state.sumy))), 0.5));
