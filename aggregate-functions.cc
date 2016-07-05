@@ -233,9 +233,8 @@ void AggregateFunctions::CountMerge(FunctionContext*, const BigIntVal& src,
 }
 
 
-static const int k = 6;
+static const int k = 500;
 static int total = 0;
-static string fileName = "/home/dev/Impala/test.txt";
 
 struct Node {
         double val;
@@ -249,36 +248,17 @@ struct linkedList {
 
         void insert (double val) {
                 len++;
-
-		ofstream outFile;
-		outFile.open(&fileName[0], std::ofstream::app);
-		outFile<< val;
-		
-	/*	dst->is_null = false;
-                dst->len = sizeof(Node);
-                dst->ptr = ctx->Allocate(dst->len);
-                memset(dst->ptr, 0, dst->len);
-*/
-               // Node* nn = (Node*) malloc(sizeof(Node)); // reinterpret_cast<Node*>(dst->ptr);// (Node*) malloc(sizeof(Node));
   		Node* nn = new Node();
                 nn->val = val;
                 nn->next = NULL;
-                if (head == NULL){
-			outFile<<"Head was null in linkedlist"<<endl ; head = nn;
-		}
+                if (head == NULL) head = nn;
                 else {
                         nn->next = head;
                         head = nn;
                 }
-		outFile<<" "<<nn->val<<endl;
-		outFile.close();
         }
 
         void sort () {
-		ofstream outFile;
-                outFile.open(&fileName[0], std::ofstream::app);
-                outFile<< "Len in sort() : "<<len<<endl;
-		outFile.close();
                 if (len <= 1) return;
                 Node* temp = head;
                 while (temp->next != NULL) {
@@ -332,7 +312,6 @@ struct cNode {
         cNode* next;
 	cNode () {
 		next = NULL;
-		//val = (linkedList*) malloc(sizeof(linkedList));
 		val = new linkedList();
 		val->len = 0;
 		val->head = NULL;
@@ -375,22 +354,9 @@ struct compactor {
 
 	void grow() {
                 len++;
-		ofstream outFile;
-                outFile.open(&fileName[0], std::ofstream::app);
-
-	/*	dst->is_null = false;
- 		dst->len = sizeof(cNode);
- 		dst->ptr = ctx->Allocate(dst->len);
- 		memset(dst->ptr, 0, dst->len);
-          */      
-	//	cNode* node = (cNode*) malloc(sizeof(cNode)); //reinterpret_cast<cNode*>(dst->ptr); //(cNode*) malloc(sizeof(cNode));
 		cNode* node = new cNode();
-	//	node->val = (linkedList*) malloc(sizeof(linkedList));
                 node->next = NULL;
-                if (head == NULL) {
-			outFile<<"Head was null in compactor"<<endl;
-                        head = node;
-                }
+                if (head == NULL) head = node;
                 else {
                         cNode* _head = head;
                         while (_head->next != NULL) _head = _head->next;
@@ -403,9 +369,6 @@ struct compactor {
                         sum += (iVal +1);
                 }
                 maxSize = sum;
-
-		outFile<<"H: "<<H<<" maxSize: "<<maxSize<<endl;
-		outFile.close();
         }
 
         int upperBound (int h) {
@@ -415,10 +378,6 @@ struct compactor {
         }
 	
 	void compact() {
-		ofstream outFile;
-                outFile.open(&fileName[0], std::ofstream::app);
-		outFile<<"size: "<<size()<<endl;
-		outFile.close();
                 while (size() >= maxSize) {
                         for (int h = 1; h <= H; h++) {
                                 if (length(h) >= (upperBound(h) +1)) {
@@ -448,14 +407,7 @@ struct compactor {
                 _head->val->sort();
                 srand(time(NULL));
                 int random = rand()%2;
-/*
-		dst->is_null = false;
-                dst->len = sizeof(linkedList);
-                dst->ptr = ctx->Allocate(dst->len);
-                memset(dst->ptr, 0, dst->len);
-*/
-                //linkedList* _list = (linkedList*) malloc(sizeof(linkedList)); //reinterpret_cast<linkedList*>(dst->ptr); //(linkedList*) malloc(sizeof(linkedList));
-              	linkedList* _list = new linkedList();	
+                linkedList* _list = new linkedList();	
 		if (random == 0) {
                         while (_head->val->len >= 2) {
                                 _head->val->pop();
@@ -481,24 +433,6 @@ struct compactor {
                 _head->val->extend(_list);
                 _list->head = NULL;
         }
-
-	void print() {
-		ofstream outFile;
-                outFile.open(&fileName[0], std::ofstream::app);
-		cNode* _head = head;
-		while (_head != NULL) {
-			Node* node = _head->val->head;
-			outFile<<"[";
-			while(node != NULL) {
-				outFile << node->val;
-				if (node->next != NULL) outFile << ", ";
-				node = node->next;
-			}
-			outFile<<"]\n";
-			_head = _head->next;
-		}
-		outFile.close();
-	}
 	
 	int rank (double x) {
 		int r = 0;
@@ -517,14 +451,6 @@ struct compactor {
 };
 
 void AggregateFunctions::MedianInit(FunctionContext* ctx, StringVal* dst) {
- /* dst->is_null = false;
-  dst->len = sizeof(compactor);
-  dst->ptr = ctx->Allocate(dst->len);
-  memset(dst->ptr, 0, dst->len);*/
-  ofstream outFile;
-  outFile.open(&fileName[0], std::ofstream::app);
-  outFile<<endl<<endl;
-  outFile.close();
   total = 0;
   AllocBuffer(ctx, dst, sizeof(compactor));
 }
@@ -540,23 +466,6 @@ void AggregateFunctions::MedianMerge(FunctionContext* ctx, const StringVal& src,
 
   compactor* src_state = reinterpret_cast<compactor*>(src.ptr);
   compactor* dst_state = reinterpret_cast<compactor*>(dst->ptr);
-  
-  src_state->print();
-/*
-  if (dst_state->H < src_state->H) {
-	ofstream outFile;
-                outFile.open(&fileName[0], std::ofstream::app);
-                outFile<<"\n====it is coming here====\n\n";
-                outFile.close();
-	std::swap(src_state, dst_state);
-	//dst_state = reinterpret_cast<compactor*>(src.ptr);
-	//src_state = reinterpret_cast<compactor*>(dst->ptr);
-	for (int h = 1; h <= dst_state->H; h++) {
-       		dst_state->extend(h,src_state->getCompactor(h));
-	}
- 	dst_state->compact();
-	return;
-  }*/
   for (int h = 1; h <= src_state->H; h++) {
 	dst_state->extend(h,src_state->getCompactor(h));
   }
@@ -570,34 +479,23 @@ DoubleVal AggregateFunctions::MedianFinalize(FunctionContext* ctx, const StringV
   
   int median = 100;
   int medianVal = 100;
-//  return DoubleVal(medianVal);
-  ofstream outFile;
-                outFile.open(&fileName[0], std::ofstream::app);
-		outFile<<"Total: "<<total<<"\n\nWriting values now:\n";
   cNode* _head = state.head;
   while (_head != NULL) {
 	Node* first = _head->val->head;
 	while (first != NULL) {
-		outFile<< first->val<<" ";
 		int retVal = state.rank(first->val);
 		retVal -= 50;
 		retVal = abs(retVal);
-
-		outFile<<"retVal: "<<retVal;
 		if (retVal < median) {
 			median = retVal;
 			medianVal = first->val;
 		}
-		outFile<<" Median: "<<median<<" medianVal: "<<medianVal<<endl;
 		first = first->next;
 	}
 	_head = _head->next;
   }
-	outFile.close();
   return DoubleVal(medianVal); 
 }
-
-
 
 // ===========================================
 // =========== CORRELATION ===================
@@ -669,6 +567,65 @@ DoubleVal AggregateFunctions::CorrFinalize(FunctionContext* ctx, const StringVal
   // Calculating correlation coefficient using Pearson Product Moment Correlation formula
   double corr = ((state->prod*state->count) - (state->sumx*state->sumy)) / (pow((((state->count*state->sum_squaredx) - (state->sumx*state->sumx)) * ((state->count*state->sum_squaredy) - (state->sumy*state->sumy))), 0.5));
   return DoubleVal(corr);
+}
+
+
+// ===========================================
+// ============= COVAR_POP ===================
+// ===========================================
+//
+
+DoubleVal AggregateFunctions::CovarFinalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (state.count == 0 || state.count == 1) return StringVal::null();
+  double covar = ((state.prod*state.count) - (state.sumx*state.sumy)) / (state.count * (state.count - 1));
+  return DoubleVal(covar);
+}
+
+// ===========================================
+// ============= REGR_SLOPE ==================
+// ===========================================
+// 
+
+DoubleVal AggregateFunctions::Regr_SlopeFinalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (state.count == 0 || state.count == 1) return StringVal::null();
+  double regr_slope = ((state.prod*state.count) - (state.sumx*state.sumy)) / ((state.count*state.sum_squaredx) - (state.sumx*state.sumx));
+  return DoubleVal(regr_slope);
+}
+
+// ===========================================
+// ============= REGR_INTERCEPT ==============
+// ===========================================
+// 
+
+DoubleVal AggregateFunctions::Regr_InterceptFinalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  if (state.count == 0 || state.count == 1) return StringVal::null();
+  double regr_intercept = (state.sumy - (((state.prod*state.count) - (state.sumx*state.sumy)) / ((state.count*state.sum_squaredx) - (state.sumx*state.sumx)))*state.sumx) / state.count;
+  return DoubleVal(regr_intercept);
+}
+
+// ===========================================
+// ================= REGR_R2 =================
+// ===========================================
+// 
+
+DoubleVal AggregateFunctions::Regr_R2Finalize(FunctionContext* ctx, const StringVal& src) {
+  CorrState state = *reinterpret_cast<CorrState*>(src.ptr);
+  ctx->Free(src.ptr);
+  double vary = (state.sum_squaredy/state.count) - (pow((state.sumy/state.count),2));
+  if (vary == 0 || state.count == 0 || state.count == 1) return StringVal::null();
+
+  double varx = (state.sum_squaredx/state.count) - (pow((state.sumx/state.count),2));
+  if (varx == 0) return ToStringVal(ctx, 1);
+
+  // Calculating correlation coefficient using Pearson Product Moment Correlation formula
+  double corr = ((state.prod*state.count) - (state.sumx*state.sumy)) / (pow((((state.count*state.sum_squaredx) - (state.sumx*state.sumx)) * ((state.count*state.sum_squaredy) - (state.sumy*state.sumy))), 0.5));
+  return DoubleVal(corr*corr);
 }
 
 
